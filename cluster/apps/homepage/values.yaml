@@ -14,6 +14,7 @@ app-template:
             tag: v1.0.3
           env:
             TZ: America/NewYork
+            HOMEPAGE_ALLOWED_HOSTS: home.dex136.xyz
           envFrom:
             - secretRef:
                 name: homepage-secret
