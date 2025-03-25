@@ -1,5 +1,6 @@
 external-dns:
-  provider: cloudflare
+  provider: 
+    name: cloudflare
   txtOwnerId: homelab
   txtPrefix: k8s.
   env:
