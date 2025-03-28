@@ -11,7 +11,7 @@ app-template:
         homepage:
           image:
             repository: ghcr.io/gethomepage/homepage
-            tag: v1.0.4
+            tag: v1.1.1
           env:
             TZ: America/NewYork
             HOMEPAGE_ALLOWED_HOSTS: home.dex136.xyz
