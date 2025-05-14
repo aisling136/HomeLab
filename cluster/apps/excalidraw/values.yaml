@@ -9,7 +9,7 @@ app-template:
         excalidraw:
           image:
             repository: docker.io/excalidraw/excalidraw
-            tag: latest@sha256:1737cee7861a145e5b6dc6b7680f923953a1f31fa767e8c7b8eebf4fb76e1f92
+            tag: latest@sha256:bfa0052bcab607783ca4882b40eb0af6e618ed056cf77db6881a87356a0229f9
             pullPolicy: IfNotPresent
           probes:
             liveness:
