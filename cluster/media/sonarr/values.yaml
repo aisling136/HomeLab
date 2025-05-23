@@ -8,7 +8,7 @@ app-template:
       containers:
         sonarr:
           image:
-            repository: ghcr.io/onedr0p/sonarr
+            repository: ghcr.io/home-operations/sonarr
             tag: 4.0.13
           env:
             SONARR__AUTH__METHOD: External

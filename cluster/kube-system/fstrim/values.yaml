@@ -10,7 +10,7 @@ app-template:
       containers:
         fstrim:
           image:
-            repository: ghcr.io/onedr0p/kubanetics
+            repository: ghcr.io/home-operations/kubanetics
             tag: 2025.3.2@sha256:309a7587c2aa7ce6a99812a61c5024240a21b708f94802a09105c61513572164
           env:
             SCRIPT_NAME: fstrim.sh

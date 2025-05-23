@@ -4,6 +4,8 @@ app-template:
       strategy: RollingUpdate
       labels:
         app: &app system-upgrade
+      serviceAccount:
+        identifier: default
       containers:
         system-upgrade:
           image:
@@ -47,5 +49,4 @@ app-template:
         operator: Exists
         effect: NoSchedule
   serviceAccount:
-    name: *app
-    create: true
+    default: {}

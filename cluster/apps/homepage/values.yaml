@@ -5,6 +5,8 @@ app-template:
       strategy: RollingUpdate
       labels:
         app: &app homepage
+      serviceAccount:
+        identifier: default
       annotations:
         reloader.stakater.com/auto: "true"
       containers:
@@ -65,5 +67,4 @@ app-template:
         - subPath: widgets.yaml
           path: /app/config/widgets.yaml
   serviceAccount:
-    create: true
-    name: *app
+    default: {}
