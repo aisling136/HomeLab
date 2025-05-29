@@ -9,7 +9,7 @@ app-template:
         radarr:
           image:
             repository: ghcr.io/home-operations/radarr
-            tag: 5.23
+            tag: 5.25
           env:
             RADARR__AUTH__METHOD: External
             RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
