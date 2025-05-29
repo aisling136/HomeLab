@@ -1,5 +1,5 @@
 ---
-apiVersion: longhorn.io/v1beta1
+apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
   name: snapshot-default
@@ -14,7 +14,7 @@ spec:
   labels:
     jobname: snapshot-twice-daily
 ---
-apiVersion: longhorn.io/v1beta1
+apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
   name: backup-default
