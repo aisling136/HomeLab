@@ -21,7 +21,7 @@ spec:
         operator: Exists
   upgrade:
     # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-    image: ghcr.io/siderolabs/talosctl:v1.10.1
+    image: ghcr.io/siderolabs/talosctl:v1.10.3
     envs:
       - name: NODE
         valueFrom:
