@@ -9,7 +9,7 @@ app-template:
         prowlarr:
           image:
             repository: ghcr.io/home-operations/prowlarr
-            tag: 1.36.2
+            tag: 1.36.3
           env:
             PROWLARR__APP__INSTANCENAME: Prowlarr
             PROWLARR__SERVER__PORT: &port 80
