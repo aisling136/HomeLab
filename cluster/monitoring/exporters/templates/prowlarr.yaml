@@ -102,7 +102,7 @@ spec:
               cpu: 500m
               memory: 256Mi
 ---
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
   name: prowlarr
