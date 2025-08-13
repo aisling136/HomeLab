@@ -50,3 +50,5 @@ argo-cd:
     metrics: *metrics
   redis:
     metrics: *metrics
+    exporter:
+      enabled: true
