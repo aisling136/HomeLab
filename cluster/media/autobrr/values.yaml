@@ -26,10 +26,10 @@ app-template:
                 httpGet:
                   path: /api/healthz/liveness
                   port: *port
-                initialDelaySeconds: 120
-                periodSeconds: 120
+                initialDelaySeconds: 10
+                periodSeconds: 10
                 timeoutSeconds: 1
-                failureThreshold: 10
+                failureThreshold: 3
             readiness: *probes
           securityContext:
             allowPrivilegeEscalation: false
