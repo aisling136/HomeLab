@@ -11,6 +11,10 @@ argo-cd:
       resource.customizations.ignoreResourceUpdates.all: |
         jsonPointers:
           - /status
+          - /spec/template/metadata/creationTimestamp
+      resource.customizations.ignoreDifferences.all: |
+        jsonPointers:
+          - /spec/template/metadata/creationTimestamp
       resource.customizations.health.postgresql.cnpg.io_Cluster: |
         hs = {}
         if obj.status ~= nil then
