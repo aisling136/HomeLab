@@ -11,7 +11,7 @@ app-template:
             TZ: America/New_York
           image:
             repository: louislam/uptime-kuma
-            tag: 1.23.16@sha256:431fee3be822b04861cf0e35daf4beef6b7cb37391c5f26c3ad6e12ce280fe18
+            tag: 2.0.1@sha256:60e6fe0c481b452633cef1a47c1096633b36e6871c5cd97ec61039de1706e1f3
           ports:
             - name: http
               containerPort: 3001
