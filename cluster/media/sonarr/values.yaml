@@ -9,7 +9,7 @@ app-template:
         sonarr:
           image:
             repository: ghcr.io/home-operations/sonarr
-            tag: 4.0.15
+            tag: 4.0.16
           env:
             SONARR__AUTH__METHOD: External
             SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
