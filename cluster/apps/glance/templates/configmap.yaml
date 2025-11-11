@@ -44,12 +44,11 @@ data:
                 collapse-after-rows: 3
                 style: grid-cards
                 channels:
-                  - UCXuqSBlHAE6Xw-yeJA0Tunw
-                  - UCR-DXc1voovS8nhAvccRZhg
                   - UCNvsIonJdJ5E4EXMa65VYpA
-                  - UCdBK94H6oZT2Q7l0-b0xmMg
-                  - UCFyP17HoU-vpxhIpGXnXx2g
-                  - UCeeFfhMcJa1kjtfZAGskOCA
+                  - UCvlj0IzjSnNoduQF0l3VGng
+                  - UC-_AkLn4A5iBr6BXN6waR_Q
+                  - UCBVAaHkKSwfzee79b7SPyPw
+                  - UCCYWagpWEequTwx61dYGT0w
                   - UCokqzNPBJ65raczldVuHAww
               - type: group
                 widgets:
