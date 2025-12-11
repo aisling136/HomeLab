@@ -183,7 +183,7 @@ grafana:
       vm-cluster:
         # renovate: depName="VictoriaMetrics - cluster"
         gnetId: 11176
-        revision: 47
+        revision: 48
         datasource:
           - name: "DS_PROMETHEUS"
             value: Prometheus
