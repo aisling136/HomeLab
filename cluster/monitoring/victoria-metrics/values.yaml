@@ -1,7 +1,7 @@
 victoria-metrics-k8s-stack:
   fullnameOverride: vm
-  experimentalDashboardsEnabled: false
-  defaultDashboardsEnabled: false
+  defaultDashboards:
+    enabled: false
   defaultRules:
     groups:
       vmcluster:
