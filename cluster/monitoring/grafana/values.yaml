@@ -78,11 +78,11 @@ grafana:
           uid: victoria
           access: proxy
           url: http://vmsingle-vm.monitoring.svc:8428/
+          isDefault: true
         - name: Prometheus
           type: prometheus
           uid: prometheus
           access: proxy
-          isDefault: true
           url: http://vmsingle-vm.monitoring.svc:8428/
   dashboards:
     default:
