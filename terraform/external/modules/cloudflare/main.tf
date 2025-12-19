@@ -7,9 +7,9 @@ resource "cloudflare_api_token" "system_api_token" {
     }, {
       id = "4755a26eedb94da69e1066d98aa820be"
     }]
-    resources = {
+    resources = jsonencode({
         "com.cloudflare.api.account.zone.${var.cloudflare_homelab_zone}" = "*"
-    }
+    })
   }]
   condition = {
     request_ip = {

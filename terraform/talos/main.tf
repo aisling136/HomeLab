@@ -60,14 +60,15 @@ resource "talos_machine_bootstrap" "cluster" {
   client_configuration = talos_machine_secrets.cluster.client_configuration
 }
 
-data "talos_cluster_kubeconfig" "cluster" {
+resource "talos_cluster_kubeconfig" "cluster" {
   depends_on = [
     talos_machine_bootstrap.cluster
   ]
   client_configuration = talos_machine_secrets.cluster.client_configuration
   endpoint             = var.cluster_endpoint
-  node                 = local.nodes[0]
+  node                 = local.nodes[1]
 }
+
 
 output "talos_config" {
   value     = data.talos_client_configuration.cluster.talos_config
@@ -75,6 +76,6 @@ output "talos_config" {
 }
 
 output "kube_config" {
-  value     = data.talos_cluster_kubeconfig.cluster.kubeconfig_raw
+  value     = resource.talos_cluster_kubeconfig.cluster.kubeconfig_raw
   sensitive = true
 }
