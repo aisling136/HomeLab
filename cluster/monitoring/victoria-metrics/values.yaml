@@ -140,9 +140,9 @@ victoria-metrics-k8s-stack:
   kubeEtcd:
     enabled: true
     endpoints: &endpoints
-      - 192.168.3.10
       - 192.168.3.11
       - 192.168.3.12
+      - 192.168.3.21
     vmScrape:
       spec:
         jobLabel: jobLabel

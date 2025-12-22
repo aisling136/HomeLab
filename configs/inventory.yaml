@@ -5,12 +5,6 @@ nodes:
     name: worker-2
     type: worker
     extraLabels:
-  - ip: 192.168.3.10
-    disk: /dev/nvme0n1
-    interface: eno1
-    name: control-0
-    type: controlplane
-    extraLabels:
   - ip: 192.168.3.11
     disk: /dev/sda
     interface: eno1
@@ -33,7 +27,7 @@ nodes:
     disk: /dev/nvme0n1
     interface: enp2s0
     name: worker-1
-    type: worker
+    type: controlplane
     extraLabels:
       transcode: true
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
