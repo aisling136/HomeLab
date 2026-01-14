@@ -201,7 +201,7 @@ grafana:
       vm-vmagent:
         # renovate: depName="VictoriaMetrics - vmagent"
         gnetId: 12683
-        revision: 27
+        revision: 29
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
