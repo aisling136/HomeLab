@@ -1,0 +1,75 @@
+app-template:
+  controllers:
+    tandoor:
+      replicas: 1
+      strategy: RollingUpdate
+      labels:
+        app: &app tandoor
+      annotations:
+        reloader.stakater.com/auto: "true"
+      initContainers:
+        init-db:
+          image:
+            repository: ghcr.io/home-operations/postgres-init
+            tag: 18.1
+          envFrom: &envFrom
+            - secretRef:
+                name: tandoor-secret
+      containers:
+        tandoor:
+          image:
+            repository: ghcr.io/tandoorrecipes/recipes
+            tag: 2.3.6
+          envFrom: *envFrom
+          env:
+            DB_ENGINE: django.db.backends.postgresql_psycopg2
+          securityContext:
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: false
+          resources:
+            requests:
+              cpu: 10m
+            limits:
+              memory: 1024Mi
+  defaultPodOptions:
+    securityContext:
+      runAsNonRoot: false
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
+      fsGroupChangePolicy: OnRootMismatch
+  service:
+    tandoor:
+      controller: *app
+      ports:
+        http:
+          port: &port 80
+  ingress:
+    tandoor:
+      className: internal
+      hosts:
+        - host: recipes.dex136.xyz
+          paths:
+            - path: /
+              service:
+                identifier: *app
+                port: http
+  persistence:
+    files:
+      existingClaim: tandoor-data
+      advancedMounts:
+        tandoor:
+          tandoor:
+            - path: /opt/recipes/mediafiles
+              subPath: mediafiles
+            - path: /opt/recipes/staticfiles
+              subPath: staticfiles
+    tmpfs:
+      type: emptyDir
+      advancedMounts:
+        tandoor:
+          tandoor:
+            - path: /opt/recipes/cookbook/static/django_js_reverse
+              subPath: django_js_reverse
+            - path: /tmp
+              subPath: tmp
