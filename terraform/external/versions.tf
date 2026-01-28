@@ -23,7 +23,7 @@ terraform {
 
     random = {
       source  = "hashicorp/random"
-      version = "3.8.0"
+      version = "3.8.1"
     }
 
     onepassword = {
