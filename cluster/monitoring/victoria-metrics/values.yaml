@@ -20,6 +20,10 @@ victoria-metrics-k8s-stack:
     spec:
       configSecret: alertmanager-secret
       externalURL: https://alertmanager.dex136.xyz
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       storage:
         volumeClaimTemplate:
           spec:
