@@ -19,7 +19,7 @@ app-template:
         tandoor:
           image:
             repository: ghcr.io/tandoorrecipes/recipes
-            tag: 2.4.0
+            tag: 2.4.1
           envFrom: *envFrom
           env:
             DB_ENGINE: django.db.backends.postgresql_psycopg2
