@@ -3,9 +3,6 @@ machine:
   install:
     disk: {{ .node.disk }}
     image: factory.talos.dev/installer/{{ (datasource "inventory").talos_factory_key }}:{{ (datasource "inventory").talos_version }}
-    extraKernelArgs:
-      - mitigations=off
-      - pcie_aspm=off
   kubelet:
     image: ghcr.io/siderolabs/kubelet:{{ (ds "inventory").kubernetes_version }}
     extraMounts:
@@ -32,12 +29,10 @@ machine:
         vip:
           ip: {{ (ds "inventory").cluster_virtual_ip }}
         {{- end }}
-    hostname: {{ .node.name }}
   features:
     hostDNS:
       forwardKubeDNSToHost: false
     rbac: true
-    stableHostname: true
     {{- if eq .node.type "controlplane" }}
     kubernetesTalosAPIAccess:
       enabled: true
@@ -128,6 +123,11 @@ cluster:
     extraArgs:
       listen-metrics-urls: "http://0.0.0.0:2381"
   {{- end }}
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+auto: off
+hostname: {{ .node.name }}
 {{ end }}
 
 {{ defineDatasource "inventory" "configs/inventory.yaml" }}

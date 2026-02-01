@@ -1,12 +1,6 @@
 nodes:
-  - ip: 192.168.3.22
-    disk: /dev/sda
-    interface: eno1
-    name: worker-2
-    type: worker
-    extraLabels:
   - ip: 192.168.3.11
-    disk: /dev/sda
+    disk: /dev/sdb
     interface: eno1
     name: control-1
     type: controlplane
