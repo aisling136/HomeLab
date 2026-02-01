@@ -142,7 +142,7 @@ victoria-metrics-k8s-stack:
             replacement: "kubelet"
     enabled: true
   kubeEtcd:
-    enabled: true
+    enabled: false
     endpoints: &endpoints
       - 192.168.3.11
       - 192.168.3.12
