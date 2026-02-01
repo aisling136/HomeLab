@@ -162,7 +162,7 @@ victoria-metrics-k8s-stack:
       port: 2381
       targetPort: 2381
   kubeControllerManager:
-    enabled: true
+    enabled: false
     endpoints: *endpoints
     service:
       enabled: true
@@ -181,7 +181,7 @@ victoria-metrics-k8s-stack:
   kubeProxy:
     enabled: false
   kubeScheduler:
-    enabled: true
+    enabled: false
     endpoints: *endpoints
     service:
       enabled: true
