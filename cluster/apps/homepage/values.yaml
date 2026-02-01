@@ -25,7 +25,7 @@ app-template:
               cpu: 15m
               memory: 200M
             limits:
-              memory: 2G
+              memory: 1G
   service:
     homepage:
       controller: *app

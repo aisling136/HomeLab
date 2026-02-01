@@ -41,7 +41,7 @@ app-template:
               cpu: 100m
             limits:
               gpu.intel.com/i915: 1
-              memory: 16Gi
+              memory: 12Gi
   defaultPodOptions:
     securityContext:
       runAsNonRoot: true
