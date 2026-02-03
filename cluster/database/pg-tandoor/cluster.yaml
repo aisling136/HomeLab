@@ -6,6 +6,7 @@ metadata:
   name: pg-tandoor
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    cnpg.io/skipEmptyWalArchiveCheck: 'enabled'
 spec:
   instances: 2
   imageName: ghcr.io/cloudnative-pg/postgresql:17.5-22
