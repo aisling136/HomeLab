@@ -67,6 +67,7 @@ spec:
           - CreateNamespace=false
           - ServerSideApply=true
           - ApplyOutOfSyncOnly=true
+          - ClientSideApplyMigration=false
       revisionHistoryLimit: 2
 {{- if and $appset.namespace (not $appset.noCreateNamespace)}}
 ---
