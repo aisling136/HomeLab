@@ -25,9 +25,6 @@ metadata:
   name: {{ $appset.name }}
   namespace: {{ $.Release.Namespace }}
 spec:
-  ignoreApplicationDifferences:
-    - jsonPointers:
-      - /spec/syncPolicy
   generators:
     - git:
         repoURL: {{ $.Values.git.repo }}

@@ -7,29 +7,6 @@ argo-cd:
       controller.diff.server.side: true
     cm:
       statusbadge.enabled: true
-      resource.ignoreResourceUpdatesEnabled: true
-      resource.customizations.ignoreResourceUpdates.all: |
-        jsonPointers:
-          - /status
-          - /spec/template/metadata/creationTimestamp
-      resource.customizations.ignoreDifferences.all: |
-        jsonPointers:
-          - /spec/template/metadata/creationTimestamp
-      resource.customizations.health.postgresql.cnpg.io_Cluster: |
-        hs = {}
-        if obj.status ~= nil then
-          hs.message = obj.status.phase
-          if obj.status.instances > obj.status.readyInstances then
-            hs.status = "Progressing"
-          end
-          if obj.status.instances == obj.status.readyInstances then
-            hs.status = "Healthy"
-          end
-          return hs
-        end
-        hs.status = "Progressing"
-        hs.message = "Waiting for healthy state"
-        return hs
   server:
     ingress:
       enabled: true
