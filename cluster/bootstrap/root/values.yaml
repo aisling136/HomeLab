@@ -10,9 +10,6 @@ applications:
     projectName: argocd
   - name: cluster-software
     projectName: system
-  - name: database
-    projectName: database
-    namespace: database
   - name: media
     namespace: media
   - name: monitoring
