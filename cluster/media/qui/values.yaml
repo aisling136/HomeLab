@@ -1,0 +1,80 @@
+app-template:
+  controllers:
+    qui:
+      annotations:
+        reloader.stakater.com/auto: "true"
+      labels:
+        app: &app qui
+      containers:
+        qui:
+          image:
+            repository: ghcr.io/autobrr/qui
+            tag: v1.13.1@sha256:05b9badae10d21f54722464e8b51abc9487ba93f9bb2fff649fbc09944d0d111
+          env:
+            TZ: America/New_York
+            QUI__PORT: &port 80
+            QUI__HOST: 0.0.0.0
+          envFrom:
+            - secretRef:
+                name: qui-secret
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+              spec:
+                failureThreshold: 30
+                periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          resources:
+            requests:
+              cpu: 20m
+            limits:
+              memory: 2Gi
+      pod:
+        securityContext:
+          runAsUser: 568
+          runAsGroup: 568
+          fsGroup: 568
+          fsGroupChangePolicy: OnRootMismatch
+          supplementalGroups: [10000]
+  defaultPodOptions:
+    nodeSelector:
+      topology.kubernetes.io/zone: "worker"
+  service:
+    qui:
+      controller: qui
+      labels:
+        app: *app
+      ports:
+        http:
+          port: *port
+  ingress:
+    qui:
+      className: internal
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "qui"
+        gethomepage.dev/icon: qui.svg
+        gethomepage.dev/group: Media
+      hosts:
+        - host: qui.dex136.xyz
+          paths:
+            - path: /
+              service:
+                identifier: *app
+                port: http
+  persistence:
+    config:
+      existingClaim: qui
+    media:
+      type: nfs
+      server: crypt
+      path: /mnt/pool0/media
+      globalMounts:
+        - path: /media
