@@ -21,7 +21,7 @@ app-template:
             ATUIN_METRICS__PORT: &metricsPort 8080
             ATUIN_TLS__ENABLE: "false"
             ATUIN_DB_URI: "sqlite:///config/atuin.db"
-          args: ["server", "start"]
+          args: ["start"]
           probes:
             liveness: &probes
               enabled: true
