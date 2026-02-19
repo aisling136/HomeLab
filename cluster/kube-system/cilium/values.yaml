@@ -10,13 +10,12 @@ cilium:
     automount:
       enabled: false
     hostRoot: /sys/fs/cgroup
-  cluster:
-    id: 1
-    name: main
   devices: en+
   enableRuntimeDeviceDetection: true
   endpointRoutes:
     enabled: true
+  envoy:
+    enabled: false
   ipam:
     mode: kubernetes
   ipv4NativeRoutingCIDR: 10.244.0.0/16
@@ -30,11 +29,12 @@ cilium:
   kubeProxyReplacement: true
   kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
   l2announcements:
-    enabled: true
+    enabled: false
   loadBalancer:
     algorithm: maglev
     mode: dsr
-  localRedirectPolicy: true
+  localRedirectPolicies:
+    enabled: true
   operator:
     rollOutPods: true
     prometheus:
@@ -66,6 +66,8 @@ cilium:
         - IPC_LOCK
         - SYS_ADMIN
         - SYS_RESOURCE
+        - PERFMON
+        - BPF
         - DAC_OVERRIDE
         - FOWNER
         - SETGID
@@ -76,3 +78,6 @@ cilium:
         - SYS_RESOURCE
   hubble:
     enabled: false
+  socketLB:
+      enabled: true
+      hostNamespaceOnly: true
