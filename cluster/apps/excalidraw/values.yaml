@@ -38,18 +38,15 @@ app-template:
       ports:
         http:
           port: 80
-  ingress:
+  route:
     excalidraw:
-      className: internal
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: *app
         gethomepage.dev/icon: excalidraw.svg
         gethomepage.dev/group: apps
-      hosts:
-        - host: draw.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - draw.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network

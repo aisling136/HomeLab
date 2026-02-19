@@ -42,21 +42,18 @@ app-template:
       ports:
         http:
           port: 8080
-  ingress:
+  route:
     glance:
-      className: internal
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: *app
         gethomepage.dev/icon: glance.svg
         gethomepage.dev/group: apps
-      hosts:
-        - host: glance.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - glance.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
   persistence:
     config:
       type: configMap
