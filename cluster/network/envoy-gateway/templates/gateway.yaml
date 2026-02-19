@@ -82,12 +82,6 @@ metadata:
   name: envoy-internal
   annotations:
     external-dns.alpha.kubernetes.io/target: &hostnameint gw-internal.dex136.xyz
-    gatus.home-operations.com/endpoint: |-
-      group: internal
-      guarded: true
-      ui:
-        hide-hostname: true
-        hide-url: true
 spec:
   gatewayClassName: envoy
   infrastructure:
