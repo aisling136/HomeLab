@@ -8,8 +8,8 @@ while getopts "o" arg; do
   esac
 done
 
-terraform -chdir="./terraform/talos" output -raw talos_config > tmp/TALOS_CONFIG
-terraform -chdir="./terraform/talos" output -raw kube_config > tmp/KUBE_CONFIG
+tofu -chdir="./terraform/talos" output -raw talos_config > tmp/TALOS_CONFIG
+tofu -chdir="./terraform/talos" output -raw kube_config > tmp/KUBE_CONFIG
 
 if $overwrite; then
     cp tmp/TALOS_CONFIG ~/.talos/config
