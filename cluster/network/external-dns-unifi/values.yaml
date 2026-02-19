@@ -34,7 +34,7 @@ external-dns:
   extraArgs:
     - --ignore-ingress-tls-spec
   policy: sync
-  sources: ["ingress", "service"]
+  sources: ["ingress", "service", "gateway-httproute"]
   serviceMonitor:
     enabled: true
   txtOwnerId: homelab

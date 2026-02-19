@@ -1,0 +1,7 @@
+apiVersion: v2
+name: envoy-gateway
+version: 0.0.0
+dependencies:
+- name: gateway-helm
+  repository: oci://mirror.gcr.io/envoyproxy
+  version: 1.7.0

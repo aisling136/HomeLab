@@ -10,7 +10,6 @@ cilium:
     automount:
       enabled: false
     hostRoot: /sys/fs/cgroup
-  devices: en+
   enableRuntimeDeviceDetection: true
   endpointRoutes:
     enabled: true
