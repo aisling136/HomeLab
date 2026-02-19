@@ -35,7 +35,6 @@ app-template:
       controller: *app
       labels:
         app: *app
-      ipFamilyPolicy: PreferDualStack
       ports:
         http:
           port: 80
