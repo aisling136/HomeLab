@@ -52,7 +52,7 @@ app-template:
       hostnames:
         - glance.dex136.xyz
       parentRefs:
-        - name: envoy-external
+        - name: envoy-internal
           namespace: network
   persistence:
     config:
