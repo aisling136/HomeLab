@@ -1,16 +1,25 @@
 nodes:
+  - ip: 192.168.3.10
+    disk: /dev/nvme0n1
+    interface: enp88s0
+    name: control-0
+    type: controlplane
+    extraLabels:
+      transcode: true
   - ip: 192.168.3.11
-    disk: /dev/sdb
-    interface: eno1
+    disk: /dev/nvme0n1
+    interface: enp88s0
     name: control-1
     type: controlplane
     extraLabels:
+      transcode: true
   - ip: 192.168.3.12
     disk: /dev/nvme0n1
-    interface: eno1
+    interface: enp2s0
     name: control-2
     type: controlplane
     extraLabels:
+      transcode: true
   - ip: 192.168.3.20
     disk: /dev/nvme0n1
     interface: eno1
@@ -18,12 +27,17 @@ nodes:
     type: worker
     extraLabels:
   - ip: 192.168.3.21
-    disk: /dev/nvme0n1
-    interface: enp2s0
+    disk: /dev/sdb
+    interface: eno1
     name: worker-1
-    type: controlplane
+    type: worker
     extraLabels:
-      transcode: true
+  - ip: 192.168.3.22
+    disk: /dev/nvme0n1
+    interface: eno1
+    name: worker-2
+    type: worker
+    extraLabels:
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
 kubernetes_version: v1.35.1
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
