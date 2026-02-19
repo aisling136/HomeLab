@@ -187,7 +187,7 @@ grafana:
       vm-operator:
         # renovate: depName="VictoriaMetrics - operator"
         gnetId: 17869
-        revision: 6
+        revision: 7
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
