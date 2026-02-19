@@ -25,6 +25,9 @@ metadata:
   name: {{ $appset.name }}
   namespace: {{ $.Release.Namespace }}
 spec:
+  ignoreApplicationDifferences:
+    - jsonPointers:
+      - /spec/syncPolicy
   generators:
     - git:
         repoURL: {{ $.Values.git.repo }}
@@ -64,7 +67,6 @@ spec:
           - CreateNamespace=false
           - ServerSideApply=true
           - ApplyOutOfSyncOnly=true
-          - ClientSideApplyMigration=false
       revisionHistoryLimit: 2
 {{- if and $appset.namespace (not $appset.noCreateNamespace)}}
 ---
