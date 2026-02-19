@@ -142,11 +142,11 @@ victoria-metrics-k8s-stack:
             replacement: "kubelet"
     enabled: true
   kubeEtcd:
-    enabled: false
+    enabled: true
     endpoints: &endpoints
+      - 192.168.3.10
       - 192.168.3.11
       - 192.168.3.12
-      - 192.168.3.21
     vmScrape:
       spec:
         jobLabel: jobLabel
@@ -162,7 +162,7 @@ victoria-metrics-k8s-stack:
       port: 2381
       targetPort: 2381
   kubeControllerManager:
-    enabled: false
+    enabled: true
     endpoints: *endpoints
     service:
       enabled: true
@@ -181,7 +181,7 @@ victoria-metrics-k8s-stack:
   kubeProxy:
     enabled: false
   kubeScheduler:
-    enabled: false
+    enabled: true
     endpoints: *endpoints
     service:
       enabled: true
