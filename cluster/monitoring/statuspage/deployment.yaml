@@ -67,7 +67,7 @@ spec:
     - group: ""
       kind: Service
       name: statuspage-service
-      namespace: default
+      namespace: monitoring
       port: 80
       weight: 1
     matches:
