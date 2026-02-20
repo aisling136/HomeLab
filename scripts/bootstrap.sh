@@ -35,10 +35,10 @@ kubectl apply -f ./tmp/coredns -R --server-side=true -n kube-system
 echo "Applied coredns. Sleeping 30 seconds"
 sleep 30
 
-#Ingress nginx
-./scripts/component.sh -c ingress-nginx
-kubectl apply -f ./tmp/ingress-nginx -R --server-side=true -n network
-echo "Applied ingress-nginx. Sleeping 30 seconds"
+#envoy gateway
+./scripts/component.sh -c envoy-gateway
+kubectl apply -f ./tmp/envoy-gateway -R --server-side=true -n network
+echo "Applied envoy-gateway. Sleeping 30 seconds"
 sleep 30
 
 #External Secrets

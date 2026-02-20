@@ -10,13 +10,12 @@ external-dns:
           name: cloudflare-api-token
           key: api-token
   extraArgs:
-    - --ingress-class=external
     - --gateway-name=envoy-external
     - --cloudflare-proxied
     - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
     - --crd-source-kind=DNSEndpoint
   interval: 5m
-  sources: ["crd", "ingress", "gateway-httproute"]
+  sources: ["crd", "gateway-httproute"]
   triggerLoopOnEvent: true
   serviceMonitor:
     enabled: true

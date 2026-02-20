@@ -41,10 +41,6 @@ app-template:
       parentRefs:
         - name: envoy-internal
           namespace: network
-      annotations:
-        nginx.ingress.kubernetes.io/affinity: "cookie"
-        nginx.ingress.kubernetes.io/session-cookie-name: "homepagesession"
-        nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
   persistence:
     config:
       type: configMap
