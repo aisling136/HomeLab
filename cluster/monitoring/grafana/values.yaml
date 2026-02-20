@@ -41,14 +41,14 @@ grafana:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/kubernetes-folder
-        - name: nginx
+        - name: envoy
           orgId: 1
-          folder: Nginx
+          folder: envoy
           type: file
           disableDeletion: false
           editable: true
           options:
-            path: /var/lib/grafana/dashboards/nginx-folder
+            path: /var/lib/grafana/dashboards/envoy-folder
         - name: victoriametrics
           disableDeletion: false
           editable: true
@@ -205,6 +205,32 @@ grafana:
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
+      envoy:
+        envoy-gateway:
+          url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-gateway-global.json
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: VictoriaMetrics
+        envoy-proxy:
+          url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-proxy-global.json
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: VictoriaMetrics
+        envoy-overview:
+          url: https://grafana.com/api/dashboards/24459/revisions/1/download
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: VictoriaMetrics
+        envoy-upstream:
+          url: https://grafana.com/api/dashboards/24457/revisions/1/download
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: VictoriaMetrics
+        envoy-downstream:
+          url: https://grafana.com/api/dashboards/24458/revisions/1/download
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: VictoriaMetrics
   plugins:
     - grafana-clock-panel
     - grafana-piechart-panel
