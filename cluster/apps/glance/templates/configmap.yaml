@@ -32,12 +32,6 @@ data:
                 pull-requests-limit: 5
                 issues-limit: -1
                 commits-limit: -1
-              - type: twitch-channels
-                channels:
-                  - hasanabi
-                  - florryworry
-                  - Zizaran
-                  - fubgun
           - size: full
             widgets:
               - type: videos
@@ -65,10 +59,10 @@ data:
                     show-thumbnails: true
                     collapse-after: 6
                   - type: reddit
-                    subreddit: games
+                    subreddit: devops
                     show-thumbnails: true
                     collapse-after: 6
                   - type: reddit
-                    subreddit: buildapc
+                    subreddit: sysadmin
                     show-thumbnails: true
                     collapse-after: 6
