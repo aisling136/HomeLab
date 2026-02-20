@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: overseerr-cache
+  name: seerr-cache
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: overseerr
+  name: seerr
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:

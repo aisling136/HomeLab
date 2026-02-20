@@ -1,15 +1,15 @@
 app-template:
   controllers:
-    overseerr:
+    seerr:
       annotations:
         reloader.stakater.com/auto: "true"
       labels:
-        app: &app overseerr
+        app: &app seerr
       containers:
-        overseerr:
+        seerr:
           image:
-            repository: ghcr.io/sct/overseerr
-            tag: 1.35.0@sha256:6197516c9d7b58ccf113455e32aafb94df5d91995fe50e8c2cae6ba6c7c7b7de
+            repository: ghcr.io/seerr-team/seerr
+            tag: v3.0.1
           env:
             TZ: America/New_York
             LOG_LEVEL: "info"
@@ -35,7 +35,7 @@ app-template:
             requests:
               cpu: 10m
             limits:
-              memory: 1Gi
+              memory: 2Gi
       pod:
         securityContext:
           runAsUser: 568
@@ -44,8 +44,8 @@ app-template:
           fsGroup: 568
           fsGroupChangePolicy: OnRootMismatch
   service:
-    overseerr:
-      controller: overseerr
+    seerr:
+      controller: seerr
       labels:
         app: *app
       ports:
@@ -59,32 +59,32 @@ app-template:
       annotations:
         external-dns.alpha.kubernetes.io/target: "gw-external.dex136.xyz"
       hostnames:
-        - overseerr.dex136.xyz
-    overseerr:
+        - seerr.dex136.xyz
+    seerr:
       parentRefs:
         - name: envoy-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
-        gethomepage.dev/name: "Overseerr"
-        gethomepage.dev/icon: overseerr.svg
+        gethomepage.dev/name: "seerr"
+        gethomepage.dev/icon: seerr.svg
         gethomepage.dev/group: Media
         gethomepage.dev/widget.type: overseerr
-        gethomepage.dev/widget.url: http://overseerr.media
-        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_OVERSEERR_TOKEN}}" }}'
-        gethomepage.dev/pod-selector: >-
+        gethomepage.dev/widget.url: http://seerr.media
+        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_SEERR_TOKEN}}" }}'
+        gethomepage.dev/pod-selector: >
           app.kubernetes.io/instance in (
-              overseerr
+              seerr
           )
       hostnames:
         - requests.dex136.xyz
   persistence:
     config:
-      existingClaim: overseerr
+      existingClaim: seerr
       globalMounts:
         - path: /app/config
     cache:
-      existingClaim: overseerr-cache
+      existingClaim: seerr-cache
       globalMounts:
         - path: /app/config/cache
     logs:
