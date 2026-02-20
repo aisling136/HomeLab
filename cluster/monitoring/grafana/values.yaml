@@ -43,7 +43,7 @@ grafana:
             path: /var/lib/grafana/dashboards/kubernetes-folder
         - name: envoy
           orgId: 1
-          folder: envoy
+          folder: Envoy
           type: file
           disableDeletion: false
           editable: true
@@ -211,7 +211,7 @@ grafana:
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
-    envoy:
+    Envoy:
       envoy-gateway:
         url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-gateway-global.json
         datasource:
@@ -223,17 +223,23 @@ grafana:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
       envoy-overview:
-        url: https://grafana.com/api/dashboards/24459/revisions/1/download
+        # renovate: depName="envoy-overview"
+        gnetId: 24459
+        revision: 1
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
       envoy-upstream:
-        url: https://grafana.com/api/dashboards/24457/revisions/1/download
+        # renovate: depName="envoy-upstream"
+        gnetId: 24457
+        revision: 1
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
       envoy-downstream:
-        url: https://grafana.com/api/dashboards/24458/revisions/1/download
+        # renovate: depName="envoy-downstream"
+        gnetId: 24458
+        revision: 1
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
