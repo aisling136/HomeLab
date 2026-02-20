@@ -1,0 +1,50 @@
+app-template:
+  controllers:
+    mealie:
+      replicas: 1
+      strategy: RollingUpdate
+      labels:
+        app: &app mealie
+      annotations:
+        reloader.stakater.com/auto: "true"
+      containers:
+        mealie:
+          image:
+            repository: ghcr.io/mealie-recipes/mealie
+            tag: v3.11.0
+          env:
+            BASE_URL: https://meals.dex136.xyz
+            API_DOCS: false
+            OIDC_AUTH_ENABLED: false
+            ALLOW_SIGNUP: false
+  service:
+    mealie:
+      controller: *app
+      labels:
+        app: *app
+      ports:
+        http:
+          port: 9000
+  route:
+    mealie:
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: Mealie
+        gethomepage.dev/icon: mealie.svg
+        gethomepage.dev/group: apps
+        gethomepage.dev/href: https://meals.dex136.xyz/
+        gethomepage.dev/widget.type: mealie
+        gethomepage.dev/widget.url: http://mealie.default:9000/
+        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_MEALIE_API_KEY}}" }}'
+        gethomepage.dev/widget.version: "2"
+        gethomepage.dev/widget.fields: '["recipes"]'
+      hostnames:
+        - meals.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
+  persistence:
+    config:
+      existingClaim: mealie
+      globalMounts:
+        - path: /app/data
