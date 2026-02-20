@@ -31,9 +31,8 @@ victoria-metrics-k8s-stack:
             resources:
               requests:
                 storage: 5Gi
-    ingress:
+    route:
       enabled: true
-      ingressClassName: internal
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: alertmanager.svg
@@ -43,8 +42,11 @@ victoria-metrics-k8s-stack:
           app.kubernetes.io/name in (
               vmalertmanager
           )
-      hosts:
+      hostnames:
         - alertmanager.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
   vmsingle:
     spec:
       retentionPeriod: "30d"
@@ -59,10 +61,13 @@ victoria-metrics-k8s-stack:
         requests:
           cpu: 1
           memory: 960Mi
-    ingress:
+    route:
       enabled: true
-      hosts:
-      - vm.dex136.xyz
+      hostnames:
+        - vm.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
@@ -75,10 +80,13 @@ victoria-metrics-k8s-stack:
     serviceMonitor:
       enabled: true
   vmalert:
-    ingress:
+    route:
       enabled: true
-      hosts:
-      - va.dex136.xyz
+      hostnames:
+        - va.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
@@ -104,8 +112,13 @@ victoria-metrics-k8s-stack:
         requests:
           cpu: 500m
           memory: 100Mi
-    ingress:
+    route:
       enabled: true
+      hostnames:
+        - vma.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
@@ -115,8 +128,6 @@ victoria-metrics-k8s-stack:
           app.kubernetes.io/name in (
               vmagent
           )
-      hosts:
-      - vma.dex136.xyz
   kubelet:
     vmScrape:
       spec:

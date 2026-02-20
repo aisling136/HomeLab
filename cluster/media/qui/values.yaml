@@ -54,21 +54,18 @@ app-template:
       ports:
         http:
           port: *port
-  ingress:
+  route:
     qui:
-      className: internal
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "qui"
         gethomepage.dev/icon: qui.svg
         gethomepage.dev/group: Media
-      hosts:
-        - host: qui.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - qui.dex136.xyz
   persistence:
     config:
       existingClaim: qui

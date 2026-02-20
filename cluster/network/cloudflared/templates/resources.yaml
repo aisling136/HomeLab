@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   endpoints:
-    - dnsName: external.dex136.xyz
+    - dnsName: gw-external.dex136.xyz
       recordType: CNAME
       targets: ["homelab-tunnel.dex136.xyz"]
 ---
@@ -18,10 +18,10 @@ metadata:
 data:
   config.yaml: |
     originRequest:
-      originServerName: external.dex136.xyz
+      originServerName: gw-external.dex136.xyz
     ingress:
     - hostname: 'dex136.xyz'
-      service: https://nginx-external-controller.network
+      service: https://envoy-external.network
     - hostname: '*.dex136.xyz'
-      service: https://nginx-external-controller.network
+      service: https://envoy-external.network
     - service: http_status:404

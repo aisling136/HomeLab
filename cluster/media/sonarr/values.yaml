@@ -59,9 +59,11 @@ app-template:
       ports:
         http:
           port: *port
-  ingress:
+  route:
     sonarr:
-      className: internal
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Sonarr"
@@ -70,13 +72,8 @@ app-template:
         gethomepage.dev/widget.type: sonarr
         gethomepage.dev/widget.url: http://sonarr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_SONARR_TOKEN}}" }}'
-      hosts:
-        - host: "sonarr.dex136.xyz"
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - sonarr.dex136.xyz
   persistence:
     config:
       existingClaim: sonarr

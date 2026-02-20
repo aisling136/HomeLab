@@ -5,10 +5,13 @@ longhorn:
     longhorn:
       instanceManager:
         tag: v1.11.0-hotfix-1
-  ingress:
+  httproute:
     enabled: true
-    ingressClassName: internal
-    host: longhorn.dex136.xyz
+    hostnames:
+      - longhorn.dex136.xyz
+    parentRefs:
+      - name: envoy-internal
+        namespace: network
     annotations:
       gethomepage.dev/enabled: "true"
       gethomepage.dev/icon: longhorn.svg

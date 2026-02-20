@@ -56,9 +56,11 @@ app-template:
       ports:
         http:
           port: *port
-  ingress:
+  route:
     autobrr:
-      className: internal
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Autobrr"
@@ -67,13 +69,8 @@ app-template:
         gethomepage.dev/widget.type: autobrr
         gethomepage.dev/widget.url: http://autobrr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_AUTOBRR_TOKEN}}" }}'
-      hosts:
-        - host: autobrr.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - "autobrr.dex136.xyz"
   persistence:
     config:
       existingClaim: autobrr

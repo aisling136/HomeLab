@@ -31,22 +31,19 @@ app-template:
         http:
           port: 3001
           protocol: TCP
-  ingress:
+  route:
     uptime-kuma:
-      className: external
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: uptime-kuma.svg
         gethomepage.dev/name: "Uptime Kuma"
         gethomepage.dev/group: Monitoring
-        external-dns.alpha.kubernetes.io/target: "external.dex136.xyz"
-      hosts:
-        - host: kuma.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+        external-dns.alpha.kubernetes.io/target: "gw-external.dex136.xyz"
+      hostnames:
+        - kuma.dex136.xyz
+      parentRefs:
+        - name: envoy-external
+          namespace: network
   persistence:
     data:
       existingClaim: pvc-uptime-kuma

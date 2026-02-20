@@ -100,16 +100,13 @@ app-template:
       ports:
         http:
           port: *apiPort
-  ingress:
+  route:
     onepassword-connect:
-      className: internal
-      hosts:
-        - host: "opc.dex136.xyz"
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
+      hostnames:
+        - opc.dex136.xyz
   persistence:
     config:
       type: emptyDir

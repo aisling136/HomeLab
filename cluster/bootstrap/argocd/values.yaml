@@ -1,6 +1,6 @@
 argo-cd:
   global:
-    domain: argocd.dex136.xyz
+    domain: &host argocd.dex136.xyz
   configs:
     params:
       server.insecure: true
@@ -8,15 +8,19 @@ argo-cd:
     cm:
       statusbadge.enabled: true
   server:
-    ingress:
+    httproute:
       enabled: true
-      ingressClassName: internal
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: argo-cd.svg
         gethomepage.dev/name: "ArgoCD"
         gethomepage.dev/group: "System"
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
+      hostnames:
+        - *host
     metrics: &metrics
       enabled: true
       serviceMonitor:

@@ -55,9 +55,11 @@ app-template:
           enabled: true
           port: *bittorrentPort
           protocol: TCP
-  ingress:
+  route:
     qbittorrent:
-      className: internal
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Qbittorrent"
@@ -65,13 +67,8 @@ app-template:
         gethomepage.dev/group: Media
         gethomepage.dev/widget.type: qbittorrent
         gethomepage.dev/widget.url: http://qbittorrent.media
-      hosts:
-        - host: qb.dex136.xyz
-          paths:
-            - path: /
-              service:
-                identifier: *app
-                port: http
+      hostnames:
+        - qb.dex136.xyz
   persistence:
     config:
       existingClaim: qbittorrent

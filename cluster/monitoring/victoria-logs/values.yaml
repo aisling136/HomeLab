@@ -8,9 +8,8 @@ victoria-logs-single:
     persistentVolume:
       enabled: true
       existingClaim: vl-data
-    ingress:
+    route:
       enabled: true
-      ingressClassName: internal
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
@@ -20,10 +19,11 @@ victoria-logs-single:
           app.kubernetes.io/instance in (
               victoria-logs
           )
-      hosts:
-        - name: vl.dex136.xyz
-          path: /
-          port: 9428
+      hostnames:
+        - vl.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
     serviceMonitor:
       enabled: true
   fluent-bit:

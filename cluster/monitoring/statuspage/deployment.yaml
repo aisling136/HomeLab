@@ -42,8 +42,8 @@ spec:
             cpu: 2m
             memory: 100Mi
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
   annotations:
     gethomepage.dev/enabled: "true"
@@ -54,18 +54,23 @@ metadata:
         app in (
           statuspage
         )
-    external-dns.alpha.kubernetes.io/target: external.dex136.xyz
+    external-dns.alpha.kubernetes.io/target: gw-external.dex136.xyz
   name: statuspage
 spec:
-  ingressClassName: external
+  parentRefs:
+    - name: envoy-external
+      namespace: network
+  hostnames:
+    - statuspage.dex136.xyz
   rules:
-    - host: statuspage.dex136.xyz
-      http:
-        paths:
-          - backend:
-              service:
-                name: statuspage-service
-                port:
-                  number: 80
-            path: /
-            pathType: Prefix
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: statuspage-service
+      namespace: default
+      port: 80
+      weight: 1
+    matches:
+    - path:
+        type: PathPrefix
+        value: /
