@@ -1,11 +1,12 @@
-serviceMonitor:
-  enabled: true
-  interval: 1m
-webhook:
+external-secrets:
   serviceMonitor:
     enabled: true
     interval: 1m
-certController:
-  serviceMonitor:
-    enabled: true
-    interval: 1m
+  webhook:
+    serviceMonitor:
+      enabled: true
+      interval: 1m
+  certController:
+    serviceMonitor:
+      enabled: true
+      interval: 1m
