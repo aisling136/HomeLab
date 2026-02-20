@@ -185,7 +185,7 @@ grafana:
       k8s-coredns:
         # renovate: depName="Kubernetes / CoreDNS"
         gnetId: 15762
-        revision: 17
+        revision: 22
         datasource: VictoriaMetrics
     victoriametrics:
       vm-cluster:
