@@ -1,7 +1,7 @@
 app-template:
   controllers:
     homepage:
-      replicas: 2
+      replicas: 1
       strategy: RollingUpdate
       labels:
         app: &app homepage
