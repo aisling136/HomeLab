@@ -40,7 +40,7 @@ app-template:
         gethomepage.dev/group: Monitoring
         external-dns.alpha.kubernetes.io/target: "gw-external.dex136.xyz"
       hostnames:
-        - kuma.dex136.xyz
+        - status.dex136.xyz
       parentRefs:
         - name: envoy-external
           namespace: network
