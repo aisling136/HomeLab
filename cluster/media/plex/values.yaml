@@ -37,12 +37,18 @@ app-template:
             readOnlyRootFilesystem: true
             capabilities: { drop: ["ALL"] }
           resources:
+            claims:
+              - name: gpu
             requests:
               cpu: 100m
             limits:
-              gpu.intel.com/i915: 1
               memory: 12Gi
   defaultPodOptions:
+    nodeSelector:
+      transcode: "true"
+    resourceClaims:
+      - name: gpu
+        resourceClaimTemplateName: plex
     securityContext:
       runAsNonRoot: true
       runAsUser: 1000
@@ -51,8 +57,6 @@ app-template:
       fsGroupChangePolicy: OnRootMismatch
       supplementalGroups: [44]
       seccompProfile: { type: RuntimeDefault }
-    nodeSelector:
-      transcode: "true"
   service:
     plex:
       controller: plex

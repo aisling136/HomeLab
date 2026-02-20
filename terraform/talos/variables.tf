@@ -29,5 +29,5 @@ variable "talos_version" {
 
 variable "apply_mode" {
   type    = string
-  default = "auto"
+  default = "staged_if_needing_reboot"
 }

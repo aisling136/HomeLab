@@ -50,18 +50,20 @@ machine:
     - content: |
         [plugins."io.containerd.cri.v1.images"]
           discard_unpacked_layers = false
+        [plugins."io.containerd.cri.v1.runtime"]
+          cdi_spec_dirs = ["/var/cdi/static", "/var/cdi/dynamic"]
+          device_ownership_from_security_context = true
       path: /etc/cri/conf.d/20-customization.part
       op: create
     - content: |
         [ NFSMount_Global_Options ]
-        nfsvers=4.1
+        nfsvers=4.2
         hard=True
         noatime=True
-        nodiratime=True
-        rsize=131072
-        wsize=131072
+        rsize=1048576
+        wsize=1048576
         nconnect=8
-      permissions: 420
+      permissions: 0o644
       path: /etc/nfsmount.conf
       op: overwrite
   sysctls:

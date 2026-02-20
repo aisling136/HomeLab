@@ -2,7 +2,6 @@ locals {
   config_directory = "../../tmp"
   node_identities  = merge(var.controlplane, var.worker)
   nodes            = keys(local.node_identities)
-  apply_mode       = "staged"
 }
 
 resource "talos_machine_secrets" "cluster" {
