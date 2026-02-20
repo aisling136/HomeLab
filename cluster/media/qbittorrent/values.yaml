@@ -69,6 +69,10 @@ app-template:
         gethomepage.dev/widget.url: http://qbittorrent.media
       hostnames:
         - qb.dex136.xyz
+      rules:
+        - backendRefs:
+            - identifier: qbittorrent
+              port: *port
   persistence:
     config:
       existingClaim: qbittorrent
