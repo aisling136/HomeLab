@@ -1,0 +1,98 @@
+app-template:
+  controllers:
+    jellyfin:
+      annotations:
+        reloader.stakater.com/auto: "true"
+      labels:
+        app: &app jellyfin
+      containers:
+        jellyfin:
+          image:
+            repository: jellyfin/jellyfin
+            tag: 10.11.6
+          env:
+            TZ: America/New_York
+            DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
+            JELLYFIN_FFmpeg__probesize: 50000000
+            JELLYFIN_FFmpeg__analyzeduration: 50000000
+          probes:
+            liveness: &probe
+              enabled: true
+              custom: true
+              spec:
+                httpGet:
+                  path: /health
+                  port: &port 8096
+                initialDelaySeconds: 0
+                periodSeconds: 10
+                timeoutSeconds: 1
+                failureThreshold: 30
+            readiness: *probe
+            startup: *probe
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          resources:
+            claims:
+              - name: gpu
+            requests:
+              cpu: 500m
+            limits:
+              memory: 4Gi
+  defaultPodOptions:
+    nodeSelector:
+      transcode: "true"
+    resourceClaims:
+      - name: gpu
+        resourceClaimTemplateName: jellyfin
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+  service:
+    jellyfin:
+      controller: jellyfin
+      labels:
+        app: *app
+      ports:
+        http:
+          port: *port
+  route:
+    jellyfin:
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Jellyfin"
+        gethomepage.dev/icon: jellyfin.svg
+        gethomepage.dev/group: apps
+      hostnames:
+        - jellyfin.dex136.xyz
+      parentRefs:
+        - name: envoy-internal
+          namespace: network
+  persistence:
+    config:
+      existingClaim: jellyfin
+      globalMounts:
+      - path: /config
+    transcode:
+      type: emptyDir
+      globalMounts:
+        - path: /transcode
+    cache:
+      type: emptyDir
+      globalMounts:
+        - path: /cache
+    tmp:
+      type: emptyDir
+      globalMounts:
+        - path: /tmp
+    media:
+      type: nfs
+      server: crypt
+      path: /mnt/pool0/media
+      globalMounts:
+        - path: /media
+          readOnly: true

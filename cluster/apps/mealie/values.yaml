@@ -33,11 +33,6 @@ app-template:
         gethomepage.dev/icon: mealie.svg
         gethomepage.dev/group: apps
         gethomepage.dev/href: https://meals.dex136.xyz/
-        gethomepage.dev/widget.type: mealie
-        gethomepage.dev/widget.url: http://mealie.default:9000/
-        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_MEALIE_API_KEY}}" }}'
-        gethomepage.dev/widget.version: "2"
-        gethomepage.dev/widget.fields: '["recipes"]'
       hostnames:
         - meals.dex136.xyz
       parentRefs:
