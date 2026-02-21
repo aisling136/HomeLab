@@ -32,6 +32,11 @@ data:
                 pull-requests-limit: 5
                 issues-limit: -1
                 commits-limit: -1
+              - type: bookmarks
+                groups:
+                  - links:
+                    - title: Homepage
+                      url: https://home.dex136.xyz/
           - size: full
             widgets:
               - type: videos
@@ -41,9 +46,9 @@ data:
                   - UCNvsIonJdJ5E4EXMa65VYpA
                   - UCvlj0IzjSnNoduQF0l3VGng
                   - UC-_AkLn4A5iBr6BXN6waR_Q
-                  - UCBVAaHkKSwfzee79b7SPyPw
-                  - UCCYWagpWEequTwx61dYGT0w
-                  - UCokqzNPBJ65raczldVuHAww
+                  - UCXGR70CkW_pXb8n52LzCCRw
+                  - UCRIZtPl9nb9RiXc9btSTQNw
+                  - UCxAS_aK7sS2x_bqnlJHDSHw
               - type: group
                 widgets:
                   - type: reddit
