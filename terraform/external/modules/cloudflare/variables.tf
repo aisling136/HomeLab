@@ -14,3 +14,11 @@ variable "cloudflare_account_id" {
 variable "cloudflare_homelab_zone" {
   type = string
 }
+
+variable "cloudflare_second_zone" {
+  type = string
+}
+
+variable "allowed_ip_range" {
+  type = string
+}
