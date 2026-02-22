@@ -19,7 +19,7 @@ victoria-metrics-k8s-stack:
   alertmanager:
     spec:
       configSecret: alertmanager-secret
-      externalURL: https://alertmanager.dex136.xyz
+      externalURL: https://alertmanager.aisling.dev
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
@@ -43,9 +43,9 @@ victoria-metrics-k8s-stack:
               vmalertmanager
           )
       hostnames:
-        - alertmanager.dex136.xyz
+        - alertmanager.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   vmsingle:
     spec:
@@ -64,9 +64,9 @@ victoria-metrics-k8s-stack:
     route:
       enabled: true
       hostnames:
-        - vm.dex136.xyz
+        - vm.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -83,9 +83,9 @@ victoria-metrics-k8s-stack:
     route:
       enabled: true
       hostnames:
-        - va.dex136.xyz
+        - va.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -98,7 +98,7 @@ victoria-metrics-k8s-stack:
           )
     spec:
       extraArgs:
-        external.url: https://vm.dex136.xyz
+        external.url: https://vm.aisling.dev
         external.alert.source: vmui/#/?g0.expr={{ "{{" }}.Expr|queryEscape{{ "}}" }}
   vmagent:
     spec:
@@ -115,9 +115,9 @@ victoria-metrics-k8s-stack:
     route:
       enabled: true
       hostnames:
-        - vma.dex136.xyz
+        - vma.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"

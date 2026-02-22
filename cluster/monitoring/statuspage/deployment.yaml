@@ -54,14 +54,14 @@ metadata:
         app in (
           statuspage
         )
-    external-dns.alpha.kubernetes.io/target: gw-external.dex136.xyz
+    external-dns.alpha.kubernetes.io/target: external.aisling.dev
   name: statuspage
 spec:
   parentRefs:
-    - name: envoy-external
+    - name: envoy-aisling-dev-external
       namespace: network
   hostnames:
-    - statuspage.dex136.xyz
+    - statuspage.aisling.dev
   rules:
   - backendRefs:
     - group: ""

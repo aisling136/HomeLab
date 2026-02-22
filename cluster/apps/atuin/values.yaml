@@ -85,9 +85,9 @@ app-template:
   route:
     atuin:
       hostnames:
-        - "sh.dex136.xyz"
+        - "sh.aisling.dev"
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   persistence:
     config:

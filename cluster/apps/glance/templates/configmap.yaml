@@ -36,7 +36,7 @@ data:
                 groups:
                   - links:
                     - title: Homepage
-                      url: https://home.dex136.xyz/
+                      url: https://home.aisling.dev/
           - size: full
             widgets:
               - type: videos

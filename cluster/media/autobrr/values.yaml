@@ -59,7 +59,7 @@ app-template:
   route:
     autobrr:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -70,7 +70,7 @@ app-template:
         gethomepage.dev/widget.url: http://autobrr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_AUTOBRR_TOKEN}}" }}'
       hostnames:
-        - "autobrr.dex136.xyz"
+        - "autobrr.aisling.dev"
   persistence:
     config:
       existingClaim: autobrr

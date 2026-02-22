@@ -15,11 +15,3 @@ gateways:
     hostname: external.aisling.dev
     ip: 192.168.3.243
     tlsSecret: aisling-dev-tls
-  - name: external
-    hostname: gw-external.dex136.xyz
-    ip: 192.168.3.246
-    tlsSecret: dex136-xyz-tls
-  - name: internal
-    hostname: gw-internal.dex136.xyz
-    ip: 192.168.3.247
-    tlsSecret: dex136-xyz-tls

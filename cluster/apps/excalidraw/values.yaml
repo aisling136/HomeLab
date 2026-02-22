@@ -46,7 +46,7 @@ app-template:
         gethomepage.dev/icon: excalidraw.svg
         gethomepage.dev/group: apps
       hostnames:
-        - draw.dex136.xyz
+        - draw.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network

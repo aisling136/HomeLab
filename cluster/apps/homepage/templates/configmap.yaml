@@ -23,7 +23,7 @@ data:
           href: 'https://192.168.1.1'
           icon: unifi.svg
       - Crypt:
-          href: 'https://crypt.dex136.xyz'
+          href: 'https://crypt.aisling.dev'
           icon: truenas.svg
   settings.yaml: |
     title: Dashboard

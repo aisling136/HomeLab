@@ -8,9 +8,9 @@ longhorn:
   httproute:
     enabled: true
     hostnames:
-      - longhorn.dex136.xyz
+      - longhorn.aisling.dev
     parentRefs:
-      - name: envoy-internal
+      - name: envoy-aisling-dev-internal
         namespace: network
     annotations:
       gethomepage.dev/enabled: "true"

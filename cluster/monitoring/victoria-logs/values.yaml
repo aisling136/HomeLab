@@ -20,9 +20,9 @@ victoria-logs-single:
               victoria-logs
           )
       hostnames:
-        - vl.dex136.xyz
+        - vl.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
     serviceMonitor:
       enabled: true

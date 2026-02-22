@@ -10,7 +10,7 @@ external-dns:
           name: cloudflare-api-token
           key: api-token
   extraArgs:
-    - --gateway-name=envoy-external
+    - --gateway-name=envoy-aisling-dev-external
     - --cloudflare-proxied
     - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
     - --crd-source-kind=DNSEndpoint

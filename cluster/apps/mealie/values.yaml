@@ -13,7 +13,7 @@ app-template:
             repository: ghcr.io/mealie-recipes/mealie
             tag: v3.11.0
           env:
-            BASE_URL: https://meals.dex136.xyz
+            BASE_URL: https://meals.aisling.dev
             API_DOCS: false
             OIDC_AUTH_ENABLED: false
             ALLOW_SIGNUP: false
@@ -32,11 +32,11 @@ app-template:
         gethomepage.dev/name: Mealie
         gethomepage.dev/icon: mealie.svg
         gethomepage.dev/group: apps
-        gethomepage.dev/href: https://meals.dex136.xyz/
+        gethomepage.dev/href: https://meals.aisling.dev/
       hostnames:
-        - meals.dex136.xyz
+        - meals.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   persistence:
     config:

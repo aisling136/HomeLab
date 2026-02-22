@@ -103,10 +103,10 @@ app-template:
   route:
     onepassword-connect:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       hostnames:
-        - opc.dex136.xyz
+        - opc.aisling.dev
   persistence:
     config:
       type: emptyDir

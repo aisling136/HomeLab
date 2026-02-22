@@ -68,9 +68,9 @@ app-template:
         gethomepage.dev/icon: jellyfin.svg
         gethomepage.dev/group: apps
       hostnames:
-        - jellyfin.dex136.xyz
+        - jellyfin.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   persistence:
     config:

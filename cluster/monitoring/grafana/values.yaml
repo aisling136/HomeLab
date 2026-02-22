@@ -18,7 +18,7 @@ grafana:
     explore:
       enabled: true
     server:
-      root_url: https://grafana.dex136.xyz
+      root_url: https://grafana.aisling.dev
   admin:
     existingSecret: grafana-admin
   dashboardProviders:
@@ -262,7 +262,7 @@ grafana:
     main:
       enabled: true
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
           gethomepage.dev/enabled: "true"
@@ -270,7 +270,7 @@ grafana:
           gethomepage.dev/name: "Grafana"
           gethomepage.dev/group: Monitoring
       hostnames:
-        - grafana.dex136.xyz
+        - grafana.aisling.dev
   persistence:
     enabled: false
   testFramework:

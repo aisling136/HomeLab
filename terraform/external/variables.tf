@@ -20,10 +20,6 @@ variable "onepass_service_account_token" {
   sensitive = true
 }
 
-variable "cloudflare_second_zone" {
-  type = string
-}
-
 variable "allowed_ip_range" {
   type = string
 }

@@ -63,7 +63,7 @@ app-template:
   route:
     radarr:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -74,7 +74,7 @@ app-template:
         gethomepage.dev/widget.url: http://radarr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_RADARR_TOKEN}}" }}'
       hostnames:
-        - radarr.dex136.xyz
+        - radarr.aisling.dev
   persistence:
     config:
       existingClaim: radarr

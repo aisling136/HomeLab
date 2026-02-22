@@ -2,15 +2,15 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   annotations:
-    external-dns.alpha.kubernetes.io/target: gw-external.dex136.xyz
+    external-dns.alpha.kubernetes.io/target: external.aisling.dev
   name: argocd-server-wh
   namespace: argocd
 spec:
   parentRefs:
-    - name: envoy-external
+    - name: envoy-aisling-dev-external
       namespace: network
   hostnames:
-    - awh.dex136.xyz
+    - awh.aisling.dev
   rules:
   - backendRefs:
     - group: ""

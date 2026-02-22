@@ -73,9 +73,9 @@ app-template:
   route:
     kromgo:
       hostnames:
-        - "kromgo.dex136.xyz"
+        - "kromgo.aisling.dev"
       parentRefs:
-        - name: envoy-external
+        - name: envoy-aisling-dev-external
           namespace: network
       rules:
         - backendRefs:

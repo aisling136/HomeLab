@@ -16,7 +16,7 @@ app-template:
             tag: v1.10.1
           env:
             TZ: America/NewYork
-            HOMEPAGE_ALLOWED_HOSTS: home.dex136.xyz
+            HOMEPAGE_ALLOWED_HOSTS: home.aisling.dev
           envFrom:
             - secretRef:
                 name: homepage-secret
@@ -37,9 +37,9 @@ app-template:
   route:
     homepage:
       hostnames:
-        - home.dex136.xyz
+        - home.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   persistence:
     config:

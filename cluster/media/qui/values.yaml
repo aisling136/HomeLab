@@ -57,7 +57,7 @@ app-template:
   route:
     qui:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -65,7 +65,7 @@ app-template:
         gethomepage.dev/icon: qui.svg
         gethomepage.dev/group: Media
       hostnames:
-        - qui.dex136.xyz
+        - qui.aisling.dev
   persistence:
     config:
       existingClaim: qui

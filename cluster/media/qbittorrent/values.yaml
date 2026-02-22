@@ -58,7 +58,7 @@ app-template:
   route:
     qbittorrent:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -68,7 +68,7 @@ app-template:
         gethomepage.dev/widget.type: qbittorrent
         gethomepage.dev/widget.url: http://qbittorrent.media
       hostnames:
-        - qb.dex136.xyz
+        - qb.aisling.dev
       rules:
         - backendRefs:
             - identifier: qbittorrent

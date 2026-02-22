@@ -9,7 +9,6 @@ resource "cloudflare_api_token" "system_api_token" {
     }]
     resources = jsonencode({
         "com.cloudflare.api.account.zone.${var.cloudflare_homelab_zone}" = "*",
-        "com.cloudflare.api.account.zone.${var.cloudflare_second_zone}" = "*"
     })
   }]
   condition = {

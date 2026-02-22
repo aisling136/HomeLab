@@ -63,7 +63,7 @@ app-template:
   route:
     prowlarr:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -74,7 +74,7 @@ app-template:
         gethomepage.dev/widget.url: http://prowlarr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_PROWLARR_TOKEN}}" }}'
       hostnames:
-        - prowlarr.dex136.xyz
+        - prowlarr.aisling.dev
   persistence:
     config:
       existingClaim: prowlarr

@@ -62,7 +62,7 @@ app-template:
   route:
     sonarr:
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       annotations:
         gethomepage.dev/enabled: "true"
@@ -73,7 +73,7 @@ app-template:
         gethomepage.dev/widget.url: http://sonarr.media
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_SONARR_TOKEN}}" }}'
       hostnames:
-        - sonarr.dex136.xyz
+        - sonarr.aisling.dev
   persistence:
     config:
       existingClaim: sonarr

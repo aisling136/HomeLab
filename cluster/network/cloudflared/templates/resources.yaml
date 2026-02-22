@@ -6,9 +6,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   endpoints:
-    - dnsName: gw-external.dex136.xyz
+    - dnsName: external.aisling.dev
       recordType: CNAME
-      targets: ["homelab-tunnel.dex136.xyz"]
+      targets: ["homelab-tunnel.aisling.dev"]
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -17,11 +17,13 @@ metadata:
   namespace: {{ .Release.Namespace }}
 data:
   config.yaml: |
-    originRequest:
-      originServerName: gw-external.dex136.xyz
     ingress:
-    - hostname: 'dex136.xyz'
-      service: https://envoy-external.network
-    - hostname: '*.dex136.xyz'
-      service: https://envoy-external.network
-    - service: http_status:404
+      - hostname: 'aisling.dev'
+        service: https://envoy-aisling-dev-external.network
+        originRequest:
+          originServerName: external.aisling.dev
+      - hostname: '*.aisling.dev'
+        service: https://envoy-aisling-dev-external.network
+        originRequest:
+          originServerName: external.aisling.dev
+      - service: http_status:404

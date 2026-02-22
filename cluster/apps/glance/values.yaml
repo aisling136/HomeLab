@@ -50,9 +50,9 @@ app-template:
         gethomepage.dev/icon: glance.svg
         gethomepage.dev/group: apps
       hostnames:
-        - glance.dex136.xyz
+        - glance.aisling.dev
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
   persistence:
     config:

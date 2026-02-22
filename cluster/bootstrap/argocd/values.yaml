@@ -1,6 +1,6 @@
 argo-cd:
   global:
-    domain: &host argocd.dex136.xyz
+    domain: &host argocd.aisling.dev
   configs:
     params:
       server.insecure: true
@@ -17,7 +17,7 @@ argo-cd:
         gethomepage.dev/name: "ArgoCD"
         gethomepage.dev/group: "System"
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-aisling-dev-internal
           namespace: network
       hostnames:
         - *host

@@ -44,6 +44,6 @@ kubernetes_version: v1.35.1
 talos_version: v1.12.4
 talos_factory_key: "ac1b37c517712298c49093ffc9a6313a8f50dd7efdbca991658877ce0720723d"
 cluster_name: aisling-homelab
-controlplane_proxy_hostname: kube.dex136.xyz
+controlplane_proxy_hostname: kube.aisling.dev
 controlplane_proxy_ip: 192.168.3.8
 cluster_virtual_ip: 192.168.3.9
