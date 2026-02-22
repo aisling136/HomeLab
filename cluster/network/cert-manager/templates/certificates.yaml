@@ -12,3 +12,18 @@ spec:
   dnsNames:
     - dex136.xyz
     - "*.dex136.xyz"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: aisling-dev
+  namespace: {{ .Release.Namespace }}
+spec:
+  secretName: aisling-dev-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: aisling.dev
+  dnsNames:
+    - aisling.dev
+    - "*.aisling.dev"
