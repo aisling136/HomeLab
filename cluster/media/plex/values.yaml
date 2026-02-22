@@ -74,7 +74,7 @@ app-template:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Plex"
         gethomepage.dev/icon: plex.svg
-        gethomepage.dev/group: apps
+        gethomepage.dev/group: Media
         external-dns.alpha.kubernetes.io/target: external.aisling.dev
       hostnames:
         - plex.aisling.dev
