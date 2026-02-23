@@ -43,9 +43,6 @@ app-template:
           fsGroup: 568
           fsGroupChangePolicy: OnRootMismatch
           supplementalGroups: [10000]
-  defaultPodOptions:
-    nodeSelector:
-      topology.kubernetes.io/zone: "worker"
   service:
     qui:
       controller: qui

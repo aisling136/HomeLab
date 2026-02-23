@@ -20,24 +20,6 @@ nodes:
     type: controlplane
     extraLabels:
       transcode: true
-  - ip: 192.168.3.20
-    disk: /dev/nvme0n1
-    interface: eno1
-    name: worker-0
-    type: worker
-    extraLabels:
-  - ip: 192.168.3.21
-    disk: /dev/sdb
-    interface: eno1
-    name: worker-1
-    type: worker
-    extraLabels:
-  - ip: 192.168.3.22
-    disk: /dev/nvme0n1
-    interface: eno1
-    name: worker-2
-    type: worker
-    extraLabels:
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
 kubernetes_version: v1.35.1
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
