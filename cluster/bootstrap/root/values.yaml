@@ -30,3 +30,7 @@ namespaces:
       pod-security.kubernetes.io/enforce-version: latest
   - name: external-secrets
   - name: onepassword-connect
+  - name: kguardian
+    labels:
+      pod-security.kubernetes.io/enforce: privileged
+      pod-security.kubernetes.io/enforce-version: latest
