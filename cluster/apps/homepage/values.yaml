@@ -22,7 +22,7 @@ app-template:
                 name: homepage-secret
           resources:
             requests:
-              cpu: 15m
+              cpu: 50m
               memory: 200M
             limits:
               memory: 1G

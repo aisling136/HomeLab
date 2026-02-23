@@ -18,7 +18,7 @@ app-template:
               protocol: TCP
           resources:
             requests:
-              cpu: 10m
+              cpu: 20m
               memory: 50Mi
             limits:
               memory: 150Mi
