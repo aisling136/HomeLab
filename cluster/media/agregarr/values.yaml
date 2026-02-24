@@ -56,6 +56,11 @@ app-template:
           port: *port
   route:
     app:
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Agregarr"
+        gethomepage.dev/icon: agregarr.svg
+        gethomepage.dev/group: Media
       hostnames:
         - agregarr.aisling.dev
       parentRefs:

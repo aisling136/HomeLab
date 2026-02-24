@@ -1,0 +1,77 @@
+app-template:
+  controllers:
+    tautulli:
+      annotations:
+        reloader.stakater.com/auto: "true"
+      labels:
+        app: &app tautulli
+      containers:
+        tautulli:
+          image:
+            repository: ghcr.io/home-operations/tautulli
+            tag: 2.16.1@sha256:6983eea603ee230b189f2d32e7d7fc0bb94917df735a71ba20460c4991877645
+          env:
+            TZ: America/New_York
+            TAUTULLI_HTTP_BASE_URL: https://tautulli.aisling.dev
+            TAUTULLI_HTTP_PORT: &port 80
+          envFrom:
+            - secretRef:
+                name: tautulli-secret
+          probes:
+            liveness: &probes
+              enabled: true
+              custom: true
+              spec:
+                httpGet:
+                  path: /status
+                  port: *port
+                initialDelaySeconds: 0
+                periodSeconds: 10
+                timeoutSeconds: 1
+                failureThreshold: 3
+            readiness: *probes
+            startup:
+              enabled: true
+              spec:
+                failureThreshold: 30
+                periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          resources:
+            requests:
+              cpu: 10m
+            limits:
+              memory: 1Gi
+      pod:
+        securityContext:
+          runAsUser: 568
+          runAsGroup: 568
+          fsGroup: 568
+          fsGroupChangePolicy: OnRootMismatch
+  service:
+    tautulli:
+      controller: tautulli
+      labels:
+        app: *app
+      ports:
+        http:
+          port: *port
+  route:
+    tautulli:
+      parentRefs:
+        - name: envoy-aisling-dev-internal
+          namespace: network
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Tautulli"
+        gethomepage.dev/icon: tautulli.svg
+        gethomepage.dev/group: Media
+      hostnames:
+        - tautulli.aisling.dev
+  persistence:
+    config:
+      existingClaim: tautulli
+    tmp:
+      type: emptyDir
