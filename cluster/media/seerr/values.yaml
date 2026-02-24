@@ -69,13 +69,6 @@ app-template:
         gethomepage.dev/name: "seerr"
         gethomepage.dev/icon: seerr.svg
         gethomepage.dev/group: Media
-        gethomepage.dev/widget.type: overseerr
-        gethomepage.dev/widget.url: http://seerr.media
-        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_SEERR_TOKEN}}" }}'
-        gethomepage.dev/pod-selector: >
-          app.kubernetes.io/instance in (
-              seerr
-          )
       hostnames:
         - requests.aisling.dev
   persistence:
