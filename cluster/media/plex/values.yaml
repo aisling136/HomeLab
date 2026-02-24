@@ -15,18 +15,22 @@ app-template:
             PLEX_ADVERTISE_URL: https://plex.aisling.dev,http://192.168.3.244
             PLEX_NO_AUTH_NETWORKS: 192.168.1.0/24,192.168.3.0/24
           probes:
-            liveness: &probes
+            liveness:
+              enabled: true
+              spec:
+                periodSeconds: 30
+                timeoutSeconds: 5
+                failureThreshold: 5
+            readiness:
               enabled: true
               custom: true
               spec:
                 httpGet:
                   path: /identity
-                  port: 32400
-                initialDelaySeconds: 0
+                  port: &port 32400
                 periodSeconds: 10
-                timeoutSeconds: 1
-                failureThreshold: 3
-            readiness: *probes
+                timeoutSeconds: 5
+                failureThreshold: 5
             startup:
               enabled: true
               spec:
