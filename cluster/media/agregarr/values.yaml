@@ -1,0 +1,70 @@
+app-template:
+  controllers:
+    agregarr:
+      annotations:
+        reloader.stakater.com/auto: "true"
+      containers:
+        app:
+          image:
+            repository: ghcr.io/agregarr/agregarr
+            tag: v2.4.0@sha256:5f638efaa7ebf19defaea2168ee95a7108709bd5598974f243c19b3993c11e50
+          env:
+            PORT: &port 80
+            TZ: America/New_York
+          probes:
+            liveness:
+              enabled: true
+              spec:
+                periodSeconds: 30
+                timeoutSeconds: 5
+                failureThreshold: 5
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                httpGet:
+                  path: /api/v1/status
+                  port: *port
+                periodSeconds: 10
+                timeoutSeconds: 5
+                failureThreshold: 5
+            startup:
+              enabled: true
+              spec:
+                failureThreshold: 30
+                periodSeconds: 10
+          resources:
+            requests:
+              cpu: 10m
+            limits:
+              memory: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: ["ALL"]}
+  defaultPodOptions:
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      fsGroupChangePolicy: OnRootMismatch
+  service:
+    app:
+      ports:
+        http:
+          port: *port
+  route:
+    app:
+      hostnames:
+        - agregarr.aisling.dev
+      parentRefs:
+        - name: envoy-aisling-dev-internal
+          namespace: network
+  persistence:
+    config:
+      existingClaim: agregarr
+      globalMounts:
+        - path: /app/config
+    tmp:
+      type: emptyDir
