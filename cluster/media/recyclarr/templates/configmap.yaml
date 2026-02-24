@@ -13,6 +13,14 @@ data:
         delete_old_custom_formats: true
         media_management:
           propers_and_repacks: do_not_prefer
+        media_naming:
+          episodes:
+            anime: default
+            daily: default
+            rename: true
+            standard: default
+          season: default
+          series: plex-imdb
         quality_definition:
           type: series
         quality_profiles:
@@ -36,6 +44,11 @@ data:
         delete_old_custom_formats: true
         media_management:
           propers_and_repacks: do_not_prefer
+        media_naming:
+          folder: plex-imdb
+          movie:
+            rename: true
+            standard: plex-imdb
         quality_definition:
           type: movie
         quality_profiles:
