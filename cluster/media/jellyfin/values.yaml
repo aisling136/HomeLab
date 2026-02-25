@@ -1,6 +1,7 @@
 app-template:
   controllers:
     jellyfin:
+      replicas: 0
       annotations:
         reloader.stakater.com/auto: "true"
       labels:
