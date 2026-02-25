@@ -1,8 +1,6 @@
 app-template:
   controllers:
     mealie:
-      replicas: 1
-      strategy: RollingUpdate
       labels:
         app: &app mealie
       annotations:

@@ -1,8 +1,6 @@
 app-template:
   controllers:
     glance:
-      replicas: 1
-      strategy: RollingUpdate
       labels:
         app: &app glance
       annotations:
