@@ -24,7 +24,7 @@ victoria-logs-single:
       parentRefs:
         - name: envoy-aisling-dev-internal
           namespace: network
-    serviceMonitor:
+    vmServiceScrape:
       enabled: true
-  fluent-bit:
-    enabled: false
+  vector:
+    enabled: true
