@@ -32,10 +32,11 @@ app-template:
         gethomepage.dev/name: Mealie
         gethomepage.dev/icon: mealie.svg
         gethomepage.dev/group: Services
-        gethomepage.dev/href: https://meals.aisling.dev/
+        gethomepage.dev/widget.type: mealie
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_MEALIE_API_KEY}}" }}'
         gethomepage.dev/widget.version: "2"
         gethomepage.dev/widget.fields: '["recipes"]'
+        gethomepage.dev/widget.url: http://mealie.default:9000/
       hostnames:
         - meals.aisling.dev
       parentRefs:
