@@ -1,6 +1,8 @@
 app-template:
   controllers:
     homepage:
+      replicas: 1
+      strategy: RollingUpdate
       labels:
         app: &app homepage
       serviceAccount:

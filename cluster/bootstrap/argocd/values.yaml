@@ -7,6 +7,9 @@ argo-cd:
       controller.diff.server.side: true
     cm:
       statusbadge.enabled: true
+      accounts.aislingbot: apiKey
+    rbac:
+      policy.default: "readonly"
   server:
     httproute:
       enabled: true
@@ -16,6 +19,10 @@ argo-cd:
         gethomepage.dev/icon: argo-cd.svg
         gethomepage.dev/name: "ArgoCD"
         gethomepage.dev/group: "System"
+#        gethomepage.dev/widget.type: argocd
+#        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_ARGOCD_TOKEN}}" }}'
+#        gethomepage.dev/widget.fields: '["apps", "synced", "outOfSync", "healthy"]'
+#        gethomepage.dev/widget.url: https://argocd.aisling.dev
       parentRefs:
         - name: envoy-aisling-dev-internal
           namespace: network

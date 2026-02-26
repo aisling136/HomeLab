@@ -37,27 +37,19 @@ data:
       hideInternetSearch: true
       showSearchSuggestions: true
       hideVisitURL: true
-    groupsInitiallyCollapsed: false
+    disableCollapse: true
+    iconStyle: theme
     layout:
-      apps:
-        style: row
-        columns: 4
+      Services:
         icon: mdi-robot-angry
       Media:
-        style: row
-        columns: 4
-        initiallyCollapsed: true
-        icon: mdi-download-circle
+        icon: sh-quickstack
       Monitoring:
-        style: row
-        columns: 4
-        initiallyCollapsed: true
         icon: mdi-chart-line
       System:
-        style: row
-        columns: 4
-        initiallyCollapsed: true
         icon: mdi-server
+      Downloads:
+        icon: mdi-download-circle
     providers:
       longhorn:
         url: http://longhorn-frontend.longhorn.svc.cluster.local

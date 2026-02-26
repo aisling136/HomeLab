@@ -1,6 +1,8 @@
 app-template:
   controllers:
     glance:
+      replicas: 1
+      strategy: RollingUpdate
       labels:
         app: &app glance
       annotations:
@@ -46,7 +48,7 @@ app-template:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: *app
         gethomepage.dev/icon: glance.svg
-        gethomepage.dev/group: apps
+        gethomepage.dev/group: Services
       hostnames:
         - glance.aisling.dev
       parentRefs:

@@ -67,7 +67,7 @@ app-template:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Jellyfin"
         gethomepage.dev/icon: jellyfin.svg
-        gethomepage.dev/group: apps
+        gethomepage.dev/group: Services
       hostnames:
         - jellyfin.aisling.dev
       parentRefs:

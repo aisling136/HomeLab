@@ -79,6 +79,9 @@ app-template:
         gethomepage.dev/name: "Plex"
         gethomepage.dev/icon: plex.svg
         gethomepage.dev/group: Media
+        gethomepage.dev/widget.type: plex
+        gethomepage.dev/widget.url: https://plex.aisling.dev
+        gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_PLEX_TOKEN}}" }}'
         external-dns.alpha.kubernetes.io/target: external.aisling.dev
       hostnames:
         - plex.aisling.dev
