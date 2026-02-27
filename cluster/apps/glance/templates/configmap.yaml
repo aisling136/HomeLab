@@ -25,7 +25,7 @@ data:
               - type: clock
                 hour-format: 24h
               - type: weather
-                location: Delmar, New York, United States
+                location: Ravena, New York, United States
                 hour-format: 24h
               - type: repository
                 repository: aisling136/homelab

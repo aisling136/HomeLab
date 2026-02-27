@@ -83,8 +83,8 @@ data:
         expanded: true
         total: true
     - openmeteo:
-        latitude: 42.6220
-        longitude: -73.8326
+        latitude: 42.4684
+        longitude: -73.8162
         timezone: America/New_York
         units: imperial
         cache: 15
