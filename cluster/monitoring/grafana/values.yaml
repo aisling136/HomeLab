@@ -237,7 +237,7 @@ grafana:
       envoy-upstream:
         # renovate: depName="envoy-upstream"
         gnetId: 24457
-        revision: 1
+        revision: 2
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
