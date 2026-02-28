@@ -230,7 +230,7 @@ grafana:
       envoy-overview:
         # renovate: depName="envoy-overview"
         gnetId: 24459
-        revision: 1
+        revision: 2
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
