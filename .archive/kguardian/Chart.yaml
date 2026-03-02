@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
 - name: kguardian
   repository: oci://ghcr.io/kguardian-dev/charts
-  version: 1.9.0
+  version: 1.9.1
