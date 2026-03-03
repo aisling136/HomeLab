@@ -25,6 +25,7 @@ data:
           type: series
         quality_profiles:
           - trash_id: c4cadd6b35b95f62c3d47a408e53e2f7  # WEB-2160p (Combined)
+            min_upgrade_format_score: 100
             reset_unmatched_scores:
               enabled: true
         custom_formats:
@@ -52,6 +53,7 @@ data:
           type: sqp-uhd
         quality_profiles:
           - trash_id: 5128baeb2b081b72126bc8482b2a86a0 # SQP-1 (2160p)
+            min_upgrade_format_score: 100
             reset_unmatched_scores:
               enabled: true
         custom_formats:
@@ -65,4 +67,4 @@ data:
               - 5c44f52a8714fdd79bb4d98e2673be1f # Retags
               - f537cf427b64c38c8e36298f657e4828 # Scene
             assign_scores_to:
-              - name: SQP-1 (2160p)
+              - trash_id: 5128baeb2b081b72126bc8482b2a86a0
