@@ -3,5 +3,5 @@ name: grafana
 version: 0.0.0
 dependencies:
 - name: grafana
-  repository: oci://ghcr.io/grafana/charts
+  repository: oci://ghcr.io/grafana/helm-charts
   version: 10.5.15
