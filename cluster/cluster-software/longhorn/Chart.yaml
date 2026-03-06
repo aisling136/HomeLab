@@ -3,5 +3,5 @@ name: longhorn
 version: 0.0.0
 dependencies:
 - name: longhorn
-  repository: https://charts.longhorn.io
+  repository: oci://ghcr.io/home-operations/charts-mirror
   version: 1.11.0

@@ -3,5 +3,5 @@ name: metrics-server
 version: 0.0.0
 dependencies:
 - name: metrics-server
-  repository: https://kubernetes-sigs.github.io/metrics-server/
+  repository: oci://ghcr.io/home-operations/charts-mirror
   version: 3.13.0

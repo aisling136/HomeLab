@@ -3,5 +3,5 @@ name: kubelet-csr-approver
 version: 0.0.0
 dependencies:
 - name: kubelet-csr-approver
-  repository: https://postfinance.github.io/kubelet-csr-approver
+  repository: oci://ghcr.io/postfinance/charts
   version: 1.2.13

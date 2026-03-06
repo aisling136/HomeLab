@@ -3,5 +3,5 @@ name: external-secrets
 version: 0.0.0
 dependencies:
 - name: external-secrets
-  repository: https://charts.external-secrets.io
+  repository: oci://ghcr.io/external-secrets/charts
   version: 0.18.2

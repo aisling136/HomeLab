@@ -3,5 +3,5 @@ name: reloader
 version: 0.0.0
 dependencies:
 - name: reloader
-  repository: https://stakater.github.io/stakater-charts
+  repository: oci://ghcr.io/stakater/charts
   version: 2.2.9
