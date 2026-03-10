@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
 - name: descheduler
   repository: oci://ghcr.io/home-operations/charts-mirror
-  version: 0.35.0
+  version: 0.35.1
