@@ -9,6 +9,7 @@
     ":skipStatusChecks",
     ":timezone(America/New_York)",
     "github>aisling136/HomeLab//.github/renovate/commitMessage.json5",
+    "github>aisling136/HomeLab//.github/renovate/customMangers.json5",
     "github>aisling136/HomeLab//.github/renovate/grafanaDashboards.json5",
     "github>aisling136/HomeLab//.github/renovate/groups.json5",
     "github>aisling136/HomeLab//.github/renovate/labels.json5",
