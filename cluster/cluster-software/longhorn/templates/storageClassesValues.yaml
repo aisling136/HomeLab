@@ -9,7 +9,7 @@ parameters:
   dataLocality: disabled
   fromBackup: ''
   fsType: ext4
-  numberOfReplicas: {{default 3 $sc.replicas | quote }}
+  numberOfReplicas: {{default 2 $sc.replicas | quote }}
   staleReplicaTimeout: '30'
   unmapMarkSnapChainRemoved: ignored
   recurringJobSelector: '[

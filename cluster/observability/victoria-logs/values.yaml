@@ -13,7 +13,7 @@ victoria-logs-single:
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
-        gethomepage.dev/group: Monitoring
+        gethomepage.dev/group: Observability
         gethomepage.dev/name: "Victoria Logs"
         gethomepage.dev/pod-selector: >-
           app.kubernetes.io/instance in (

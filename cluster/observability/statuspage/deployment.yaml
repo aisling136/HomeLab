@@ -48,7 +48,7 @@ metadata:
   annotations:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/icon: mdi-bottle-tonic-plus
-    gethomepage.dev/group: Monitoring
+    gethomepage.dev/group: Observability
     gethomepage.dev/name: "ArgoStatus"
     gethomepage.dev/pod-selector: >-
         app in (
@@ -67,7 +67,7 @@ spec:
     - group: ""
       kind: Service
       name: statuspage-service
-      namespace: monitoring
+      namespace: observability
       port: 80
       weight: 1
     matches:

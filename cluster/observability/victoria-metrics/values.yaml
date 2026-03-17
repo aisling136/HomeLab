@@ -37,7 +37,7 @@ victoria-metrics-k8s-stack:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: alertmanager.svg
         gethomepage.dev/name: "Alert Manager"
-        gethomepage.dev/group: Monitoring
+        gethomepage.dev/group: Observability
         gethomepage.dev/pod-selector: >-
           app.kubernetes.io/name in (
               vmalertmanager

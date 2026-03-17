@@ -12,8 +12,8 @@ applications:
     projectName: system
   - name: media
     namespace: media
-  - name: monitoring
-    namespace: monitoring
+  - name: observability
+    namespace: observability
     labels:
       pod-security.kubernetes.io/audit: privileged
       pod-security.kubernetes.io/enforce: privileged
@@ -30,7 +30,3 @@ namespaces:
       pod-security.kubernetes.io/enforce-version: latest
   - name: external-secrets
   - name: onepassword-connect
-  - name: kguardian
-    labels:
-      pod-security.kubernetes.io/enforce: privileged
-      pod-security.kubernetes.io/enforce-version: latest

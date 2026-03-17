@@ -4,6 +4,8 @@
 kubectl create ns argocd
 kubectl create ns network
 kubectl create ns longhorn
+kubectl label ns longhorn pod-security.kubernetes.io/enforce=privileged
+kubectl label ns longhorn pod-security.kubernetes.io/enforce-version=latest
 kubectl create ns onepassword-connect
 kubectl create ns external-secrets
 echo "Created namespaces. Sleeping 30 seconds"
@@ -39,6 +41,12 @@ sleep 30
 ./scripts/component.sh -c envoy-gateway
 kubectl apply -f ./tmp/envoy-gateway -R --server-side=true -n network
 echo "Applied envoy-gateway. Sleeping 30 seconds"
+sleep 30
+
+#External Secrets
+./scripts/component.sh -c onepassword-connect
+kubectl apply -f ./tmp/onepassword-connect -R --server-side=true -n onepassword-connect
+echo "Applied onepassword-connect. Sleeping 30 seconds"
 sleep 30
 
 #External Secrets
