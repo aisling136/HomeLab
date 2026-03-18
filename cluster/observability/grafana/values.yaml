@@ -175,7 +175,7 @@ grafana:
       k8s-views-pods:
         # renovate: depName="Kubernetes / Views / Pods"
         gnetId: 15760
-        revision: 37
+        revision: 39
         datasource: VictoriaMetrics
       k8s-volumes:
         # renovate: depName="K8s / Storage / Volumes / Cluster"
