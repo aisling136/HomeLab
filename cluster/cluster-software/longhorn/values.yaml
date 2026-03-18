@@ -36,4 +36,4 @@ storageClasses:
       backupCron: "5 */2 * * *"
     - name: monitoring
       snapshotCron: "11 */6 * * *"
-      backupCron: "15 /12 * * *"
+      backupCron: "15 */12 * * *"
