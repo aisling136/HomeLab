@@ -37,6 +37,6 @@ storageClasses:
     - name: monitoring
       snapshotCron: "11 */12 * * *"
       backupCron: "05 10 * * *"
-    - name: database
-      snapshotCron: "31 */6 * * *"
-      backupCron: "05 11 * * *"
+    - name: observability
+      snapshotCron: "11 */12 * * *"
+      backupCron: "05 10 * * *"
