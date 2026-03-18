@@ -27,7 +27,7 @@ victoria-metrics-k8s-stack:
       storage:
         volumeClaimTemplate:
           spec:
-            storageClassName: observability
+            storageClassName: monitoring
             resources:
               requests:
                 storage: 5Gi
@@ -51,7 +51,7 @@ victoria-metrics-k8s-stack:
     spec:
       retentionPeriod: "30d"
       storage:
-        storageClassName: observability
+        storageClassName: monitoring
         resources:
           requests:
             storage: 50Gi

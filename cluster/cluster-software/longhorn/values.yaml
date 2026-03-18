@@ -32,11 +32,8 @@ longhorn:
     pollInterval: 0
 storageClasses:
     - name: media
-      snapshotCron: "1 */6 * * *"
-      backupCron: "05 9 * * *"
+      snapshotCron: "0 */1 * * *"
+      backupCron: "5 */2 * * *"
     - name: monitoring
-      snapshotCron: "11 */12 * * *"
-      backupCron: "05 10 * * *"
-    - name: observability
-      snapshotCron: "11 */12 * * *"
-      backupCron: "05 10 * * *"
+      snapshotCron: "11 */6 * * *"
+      backupCron: "15 /12 * * *"

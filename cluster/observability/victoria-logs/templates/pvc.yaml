@@ -7,7 +7,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: observability
+  storageClassName: monitoring
   resources:
     requests:
       storage: 20Gi
