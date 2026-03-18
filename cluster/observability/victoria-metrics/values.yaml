@@ -27,7 +27,7 @@ victoria-metrics-k8s-stack:
       storage:
         volumeClaimTemplate:
           spec:
-            storageClassName: monitoring
+            storageClassName: observability
             resources:
               requests:
                 storage: 5Gi
@@ -51,7 +51,7 @@ victoria-metrics-k8s-stack:
     spec:
       retentionPeriod: "30d"
       storage:
-        storageClassName: monitoring
+        storageClassName: observability
         resources:
           requests:
             storage: 50Gi
@@ -71,7 +71,7 @@ victoria-metrics-k8s-stack:
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
-        gethomepage.dev/group: Monitoring
+        gethomepage.dev/group: Observability
         gethomepage.dev/name: "Victoria Metrics"
         gethomepage.dev/pod-selector: >-
           app.kubernetes.io/name in (
@@ -90,7 +90,7 @@ victoria-metrics-k8s-stack:
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
-        gethomepage.dev/group: Monitoring
+        gethomepage.dev/group: Observability
         gethomepage.dev/name: "Victoria Metrics Alert"
         gethomepage.dev/pod-selector: >-
           app.kubernetes.io/name in (
@@ -122,7 +122,7 @@ victoria-metrics-k8s-stack:
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/icon: si-victoriametrics-#621773
-        gethomepage.dev/group: Monitoring
+        gethomepage.dev/group: Observability
         gethomepage.dev/name: "Victoria Metrics Agent"
         gethomepage.dev/pod-selector: >-
           app.kubernetes.io/name in (

@@ -44,7 +44,7 @@ data:
         icon: mdi-robot-angry
       Media:
         icon: sh-quickstack
-      Monitoring:
+      Observability:
         icon: mdi-chart-line
       System:
         icon: mdi-server

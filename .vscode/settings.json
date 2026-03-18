@@ -44,7 +44,6 @@
         "external-secrets": "secure",
         "argocd": "pipe",
         "kube-system": "kubernetes",
-        "monitoring": "event",
         "media": "television",
         "network": "connection",
         "networking": "connection",
