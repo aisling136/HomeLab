@@ -9,7 +9,7 @@ app-template:
         mealie:
           image:
             repository: ghcr.io/mealie-recipes/mealie
-            tag: v3.13.0
+            tag: v3.13.1
           env:
             BASE_URL: https://meals.aisling.dev
             API_DOCS: false
