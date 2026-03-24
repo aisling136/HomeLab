@@ -1,7 +1,6 @@
 app-template:
   controllers:
     onepassword-connect:
-      strategy: RollingUpdate
       annotations:
         reloader.stakater.com/auto: "true"
       labels:

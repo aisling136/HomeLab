@@ -1,8 +1,6 @@
 app-template:
   controllers:
     atuin:
-      replicas: 1
-      strategy: RollingUpdate
       labels:
         app: &app atuin
       annotations:
