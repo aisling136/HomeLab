@@ -7,7 +7,7 @@ app-template:
         unpoller:
           image:
             repository: ghcr.io/unpoller/unpoller
-            tag: v2.35.0@sha256:4bb11839e4d9c44baa1b802f8d497d479b9566173366507e055d200d6fade5ca
+            tag: v2.37.0@sha256:f730b383f9c84fcf02665f793ad270eae7d5447cdc3f799794885d8d67334568
           env:
             TZ: America/New_York
             UP_UNIFI_DEFAULT_ROLE: home-ops
