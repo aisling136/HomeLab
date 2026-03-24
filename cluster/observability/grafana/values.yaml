@@ -155,7 +155,7 @@ grafana:
       k8s-system-api-server:
         # renovate: depName="Kubernetes / System / API Server"
         gnetId: 15761
-        revision: 20
+        revision: 21
         datasource: VictoriaMetrics
       k8s-views-global:
         # renovate: depName="Kubernetes / Views / Global"
