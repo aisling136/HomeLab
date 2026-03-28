@@ -11,7 +11,7 @@ app-template:
         homepage:
           image:
             repository: ghcr.io/gethomepage/homepage
-            tag: v1.11.0
+            tag: v1.12.0
           env:
             TZ: America/NewYork
             HOMEPAGE_ALLOWED_HOSTS: home.aisling.dev
