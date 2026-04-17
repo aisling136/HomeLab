@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
 - name: intel-gpu-resource-driver-chart
   repository: oci://ghcr.io/intel/intel-resource-drivers-for-kubernetes
-  version: 0.9.1
+  version: 0.10.0
