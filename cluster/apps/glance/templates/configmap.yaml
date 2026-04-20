@@ -27,6 +27,7 @@ data:
               - type: weather
                 location: Ravena, New York, United States
                 hour-format: 24h
+                units: imperial
               - type: repository
                 repository: aisling136/homelab
                 pull-requests-limit: 5
