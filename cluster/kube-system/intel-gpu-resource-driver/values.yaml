@@ -2,3 +2,7 @@ intel-gpu-resource-driver-chart:
   cdi:
     staticPath: /var/cdi/static
     dynamicPath: /var/cdi/dynamic
+  kubeletPlugin:
+    healthMonitoring:
+      enabled: false
+    privileged: true
