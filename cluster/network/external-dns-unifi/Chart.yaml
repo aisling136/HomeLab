@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
 - name: external-dns
   repository: oci://ghcr.io/home-operations/charts-mirror
-  version: 1.20.0
+  version: 1.21.1
