@@ -24,6 +24,8 @@ app-template:
               memory: 200M
             limits:
               memory: 1G
+  defaultPodOptions:
+    automountServiceAccountToken: true
   service:
     homepage:
       controller: *app
