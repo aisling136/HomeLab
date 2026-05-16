@@ -112,6 +112,8 @@ victoria-metrics-k8s-stack:
         requests:
           cpu: 500m
           memory: 100Mi
+      extraArgs:
+        promscrape.maxScrapeSize: "33554432"
     route:
       enabled: true
       hostnames:
