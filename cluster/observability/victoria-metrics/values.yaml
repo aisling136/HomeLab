@@ -200,7 +200,6 @@ victoria-metrics-k8s-stack:
       targetPort: 10259
     vmScrape:
       spec:
-        jobLabel: jobLabel
         endpoints:
           - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
             port: http-metrics
