@@ -205,7 +205,7 @@ grafana:
       vm-vmalert:
         # renovate: depName="VictoriaMetrics - vmalert"
         gnetId: 14950
-        revision: 19
+        revision: 20
         datasource:
           - name: "DS_PROMETHEUS"
             value: VictoriaMetrics
