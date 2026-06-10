@@ -48,8 +48,6 @@ app-template:
             limits:
               memory: 12Gi
   defaultPodOptions:
-    nodeSelector:
-      transcode: "true"
     resourceClaims:
       - name: gpu
         resourceClaimTemplateName: plex

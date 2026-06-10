@@ -5,14 +5,12 @@ nodes:
     name: control-0
     type: controlplane
     extraLabels:
-      transcode: true
   - ip: 192.168.3.11
     disk: /dev/nvme0n1
     interface: enp88s0
     name: control-1
     type: controlplane
     extraLabels:
-      transcode: true
   - ip: 192.168.3.12
     disk: /dev/nvme0n1
     interface: enp2s0
