@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Get talos schematic ID and update inventory.yaml
 resp=$(curl -X POST --data-binary @configs/schematic.yaml https://factory.talos.dev/schematics)
