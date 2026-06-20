@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
 - name: prometheus-smartctl-exporter
   repository: oci://ghcr.io/prometheus-community/charts
-  version: 0.16.1
+  version: 0.17.0
