@@ -1,6 +1,8 @@
 argo-cd:
   global:
     domain: &host argocd.aisling.dev
+    networkPolicy:
+      create: false
   configs:
     params:
       server.insecure: true
