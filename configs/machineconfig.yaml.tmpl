@@ -129,6 +129,24 @@ apiVersion: v1alpha1
 kind: HostnameConfig
 auto: off
 hostname: {{ .node.name }}
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: longhorn
+provisioning:
+  diskSelector:
+    match: system_disk
+  grow: false
+  minSize: 100GB
+---
+apiVersion: v1alpha1
+kind: VolumeConfig
+name: EPHEMERAL
+provisioning:
+  diskSelector:
+    match: system_disk
+  grow: false
+  minSize: 2GB
 {{ end }}
 
 {{ defineDatasource "inventory" "configs/inventory.yaml" }}
