@@ -29,3 +29,17 @@ spec:
   labels:
     jobname: backup-weekly
 ---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: cleanup-default
+  namespace: {{ $.Release.Namespace }}
+spec:
+  concurrency: 1
+  cron: "00 1 * * *"
+  groups:
+    - default
+  labels:
+    jobname: "cleanup-default"
+  task: snapshot-cleanup
+---

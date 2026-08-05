@@ -51,4 +51,18 @@ spec:
     jobname: "backup-{{ $sc.name }}"
   retain: 2
   task: backup
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: cleanup-{{ $sc.name }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  concurrency: 1
+  cron: "00 1 * * *"
+  groups:
+    - {{ $sc.name }}
+  labels:
+    jobname: "cleanup-{{ $sc.name }}"
+  task: snapshot-cleanup
 {{- end }}
