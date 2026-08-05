@@ -5,14 +5,6 @@ machine:
     image: factory.talos.dev/installer/{{ (datasource "inventory").talos_factory_key }}:{{ (datasource "inventory").talos_version }}
   kubelet:
     image: ghcr.io/siderolabs/kubelet:{{ (ds "inventory").kubernetes_version }}
-    extraMounts:
-      - destination: /var/lib/longhorn
-        type: bind
-        source: /var/lib/longhorn
-        options:
-        - bind
-        - rshared
-        - rw
     nodeIP:
       validSubnets:
         - 192.168.3.0/24
