@@ -129,7 +129,7 @@ provisioning:
   diskSelector:
     match: system_disk
   grow: false
-  minSize: 100GB
+  maxSize: 800GB
 ---
 apiVersion: v1alpha1
 kind: VolumeConfig
@@ -138,7 +138,7 @@ provisioning:
   diskSelector:
     match: system_disk
   grow: false
-  minSize: 2GB
+  maxSize: 100GB
 {{ end }}
 
 {{ defineDatasource "inventory" "configs/inventory.yaml" }}
