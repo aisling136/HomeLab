@@ -27,6 +27,7 @@ longhorn:
     storageMinimalAvailablePercentage: 10
     concurrentAutomaticEngineUpgradePerNodeLimit: 1
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+    defaultDataPath: /var/mnt/longhorn
   defaultBackupStore:
     backupTarget: nfs://192.168.3.40:/volume1/cluster/longhorn
     pollInterval: 0
