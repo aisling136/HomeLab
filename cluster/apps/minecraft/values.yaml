@@ -1,0 +1,83 @@
+app-template:
+  controllers:
+    minecraft:
+      labels:
+        app: &app minecraft
+      pod:
+          labels:
+            ingress.home.arpa/world: allow
+            egress.home.arpa/internet: allow
+          resources: &resources
+            requests:
+              cpu: "10m"
+              memory: "10Gi"
+            limits:
+              memory: "12Gi"
+      containers:
+        minecraft:
+          image:
+            repository: ghcr.io/itzg/minecraft-server
+            tag: 2026.8.0
+          env:
+            TZ: America/NewYork
+            MEMORY: "10G"
+            EULA: "TRUE"
+            TYPE: "VANILLA"
+            VERSION: "26.2"
+            MODE: "survival"
+            DIFFICULTY: "normal"
+            FORCE_GAMEMODE: "true"
+            HARDCORE: "false"
+            MAX_TICK_TIME: "-1"
+            VIEW_DISTANCE: &distance "16"
+            OVERRIDE_SERVER_PROPERTIES: "true"
+            ENABLE_RCON: "true"
+            USE_AIKAR_FLAGS: "true"
+            SIMULATION_DISTANCE: *distance
+          envFrom:
+          - secretRef:
+              name: minecraft-secret
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              drop: ["ALL"]
+          resources: *resources
+  defaultPodOptions:
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: &uid 1000
+      runAsGroup: *uid
+      fsGroup: *uid
+      fsGroupChangePolicy: OnRootMismatch
+      seccompProfile: { type: "RuntimeDefault" }
+  service:
+    minecraft:
+      controller: *app
+      type: LoadBalancer
+      annotations:
+        io.cilium/lb-ipam-ips: 192.168.3.246
+      labels:
+        app: *app
+      ports:
+        http:
+          port: 25565
+          protocol: TCP
+  route:
+    minecraft:
+      annotations:
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: Minecraft
+        gethomepage.dev/icon: minecraft.svg
+        gethomepage.dev/group: Services
+      hostnames:
+        - mc.aisling.dev
+      parentRefs:
+        - name: envoy-aisling-dev-external
+          namespace: network
+  persistence:
+    data:
+      existingClaim: minecraft
+    tmp:
+      type: emptyDir
+      medium: Memory
