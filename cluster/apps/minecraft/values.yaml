@@ -45,6 +45,14 @@ app-template:
             capabilities:
               drop: ["ALL"]
           resources: *resources
+  defaultPodOptions:
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: &uid 1000
+      runAsGroup: *uid
+      fsGroup: *uid
+      fsGroupChangePolicy: OnRootMismatch
+      seccompProfile: { type: "RuntimeDefault" }
   service:
     minecraft:
       controller: *app
