@@ -32,8 +32,6 @@ app-template:
             VIEW_DISTANCE: "10"
             OVERRIDE_SERVER_PROPERTIES: "true"
             ENABLE_RCON: "true"
-            RCON_CMDS_STARTUP: |-
-              gamerule keepInventory false
             SYNC_CHUNK_WRITES: "false"
             USE_AIKAR_FLAGS: "true"
           envFrom:
