@@ -1,0 +1,7 @@
+apiVersion: v2
+name: mc-cherry
+version: 0.0.0
+dependencies:
+- name: minecraft
+  repository: oci://ghcr.io/itzg/minecraft-server-charts
+  version: 5.1.3

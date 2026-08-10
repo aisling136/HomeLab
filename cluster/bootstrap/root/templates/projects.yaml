@@ -67,6 +67,13 @@ spec:
           - CreateNamespace=false
           - ServerSideApply=true
           - ApplyOutOfSyncOnly=true
+      ignoreDifferences:
+        - group: apps
+          kind: StatefulSet
+          namespace: default
+          jsonPointers:
+            - /spec/replicas
+            - /metadata/generation
       revisionHistoryLimit: 2
 {{- if and $appset.namespace (not $appset.noCreateNamespace)}}
 ---

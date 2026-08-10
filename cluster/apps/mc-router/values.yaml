@@ -1,0 +1,18 @@
+mc-router:
+  image:
+    repository: ghcr.io/itzg/mc-router
+    tag: 1.46.2
+    pullPolicy: IfNotPresent
+  services:
+    minecraft:
+      type: LoadBalancer
+      annotations:
+        io.cilium/lb-ipam-ips: 192.168.3.247
+        external-dns.alpha.kubernetes.io/hostname: cherry.aisling.dev,mc.aisling.dev
+  minecraftRouter:
+    autoScale:
+      up:
+        enabled: true
+      down:
+        enabled: true
+        after: 2m

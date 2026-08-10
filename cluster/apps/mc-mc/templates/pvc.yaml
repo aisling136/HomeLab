@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: minecraft
+  name: mc-mc
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:

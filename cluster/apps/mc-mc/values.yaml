@@ -1,0 +1,54 @@
+minecraft:
+  extraEnv:
+    TZ: America/NewYork
+    USE_AIKAR_FLAGS: "true"
+  fullnameOverride: &app mc-mc
+  workloadAsStatefulSet: true
+  strategyType: RollingUpdate
+  image:
+    repository: ghcr.io/itzg/minecraft-server
+    tag: 2026.8.0
+  livenessProbe:
+    initialDelaySeconds: 30
+  readinessProbe:
+    initialDelaySeconds: 30
+  minecraftServer:
+    eula: true
+    # renovate: datasource=custom.minecraft-release
+    version: "26.2"
+    type: FABRIC
+    difficulty: normal
+    spawnProtection: 0
+    gameMode: survival
+    motd: "Aisling's World!."
+    worldSaveName: cherry
+    viewDistance: &distance 12
+    simulationDistance: *distance
+    whitelist: "Aisling136"
+    memory: 10G
+    modrinth:
+      projects:
+        - lithium
+        - ferrite-core
+        - distanthorizons:beta
+    rcon:
+      enabled: true
+  envFrom:
+    - secretRef:
+        name: *app
+  persistence:
+    dataDir:
+      enabled: true
+      existingClaim: *app
+  resources:
+    requests:
+      cpu: 200m
+      memory: 10Gi
+    limits:
+      memory: 12Gi
+  securityContext:
+    runAsUser: 1000
+  serviceAnnotations:
+    mc-router.itzg.me/externalServerName: mc.aisling.dev
+  startupProbe:
+    enabled: true
