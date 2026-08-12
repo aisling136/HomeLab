@@ -15,4 +15,4 @@ mc-router:
         enabled: true
       down:
         enabled: true
-        after: 2m
+        after: 15m
