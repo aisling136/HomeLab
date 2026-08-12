@@ -21,9 +21,9 @@ minecraft:
     spawnProtection: 0
     gameMode: survival
     motd: "Aisling's World!."
-    worldSaveName: cherry
     viewDistance: &distance 12
     simulationDistance: *distance
+    worldSaveName: Aisling
     whitelist: "Aisling136"
     memory: 10G
     modrinth:
