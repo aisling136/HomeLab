@@ -7,7 +7,7 @@ minecraft:
   strategyType: RollingUpdate
   image:
     repository: ghcr.io/itzg/minecraft-server
-    tag: 2026.8.0
+    tag: 2026.8.1
   livenessProbe:
     initialDelaySeconds: 30
   readinessProbe:
