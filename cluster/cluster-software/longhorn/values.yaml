@@ -17,6 +17,9 @@ longhorn:
           app.kubernetes.io/instance in (
               longhorn
           )
+  networkPolicies:
+    enabled: false
+    restrictInternalTraffic: false
   metrics:
     serviceMonitor:
       enabled: true
