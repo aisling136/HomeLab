@@ -10,7 +10,6 @@ app-template:
             tag: v4.0.1@sha256:b2763042859c15301c0db5056de789d75e148b9df25fce97fdb35b854f21edb1
           env:
             TZ: America/New_York
-            UP_UNIFI_DEFAULT_ROLE: home-ops
             UP_UNIFI_DEFAULT_URL: https://192.168.1.1
             UP_PROMETHEUS_HTTP_LISTEN: 0.0.0.0:80
             UP_INFLUXDB_DISABLE: true
@@ -18,10 +17,11 @@ app-template:
             - secretRef:
                 name: unpoller-secret
           probes:
-            liveness:
+            liveness: &probes
               enabled: true
-            readiness:
-              enabled: true
+              spec:
+                initialDelaySeconds: 60
+            readiness: *probes
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
