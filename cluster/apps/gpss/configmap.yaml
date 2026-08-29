@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gpss-config
+  labels:
+    app.kubernetes.io/name: gpss
+data:
+  config.json: |
+    {
+      "fancy_screen": false,
+      "database": {
+        "db_type": "sqlite",
+        "connection_string": "file:/db/local-gpss.db?cache=shared\u0026_pragma=foreign_keys(1)"
+      },
+      "http": {
+        "port": 80,
+        "listening_addr": "0.0.0.0"
+      },
+      "misc": {
+        "recheck_legality": false,
+        "migrate_original_db": false,
+        "download_original_db": false
+      }
+    }

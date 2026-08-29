@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpss
+spec:
+  selector:
+    matchLabels:
+      app: gpss
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gpss
+    spec:
+      containers:
+      - name: gpss
+        image: ghcr.io/aisling136/gpss:0.0.2
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+        - name: config
+          mountPath: /app/config.json
+          subPath: config.json
+        - mountPath: /db
+          name: db
+        resources:
+          requests:
+            cpu: 2m
+            memory: 100Mi
+      volumes:
+        - name: config
+          configMap:
+            name: gpss-config
+        - name: db
+          persistentVolumeClaim:
+            claimName: gpss
