@@ -7,7 +7,7 @@ app-template:
         unpoller:
           image:
             repository: ghcr.io/unpoller/unpoller
-            tag: v5.1.1@sha256:8f8d15103aec5866ee70e7f973bceab912658d6ea68a4be59bd8f45422de2a08
+            tag: v5.2.3@sha256:c0c6ac8ed55c2fbb5140320911c9f0b3270a1727442a0d9551b920c4c7f11036
           env:
             TZ: America/New_York
             UP_UNIFI_DEFAULT_URL: https://192.168.1.1
