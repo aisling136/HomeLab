@@ -6,7 +6,7 @@ installer:
   image: factory.talos.dev/metal-installer/{{ (datasource "inventory").talos_factory_key }}:{{ (datasource "inventory").talos_version }}
 provisioning:
   diskSelector:
-    match: disk.dev_path == {{ .node.disk }}
+    match: disk.dev_path == "{{ .node.disk }}"
   wipe: false
 ---
 machine:
@@ -29,7 +29,7 @@ apiVersion: v1alpha1
 kind: KubeletConfig
 config:
   maxParallelImagePulls: 3
-  rotateCertificates: true
+  serverTLSBootstrap: true
 defaultRuntimeSeccompProfileEnabled: true
 image: ghcr.io/siderolabs/kubelet:{{ (ds "inventory").kubernetes_version }}
 ---
@@ -76,6 +76,7 @@ kind: KubeNodeConfig
 nodeIP:
   validSubnets:
     - 192.168.3.0/24
+taints:
 labels:
   topology.kubernetes.io/region: main
   topology.kubernetes.io/zone: {{ .node.type }}
@@ -91,7 +92,6 @@ enabled: false
 apiVersion: v1alpha1
 kind: KubeSchedulerConfig
 image: registry.k8s.io/kube-scheduler:{{ (ds "inventory").kubernetes_version }}
-enabled: false
 extraArgs:
   bind-address: "0.0.0.0"
 ---
