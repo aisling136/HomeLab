@@ -2,7 +2,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   annotations:
-    external-dns.alpha.kubernetes.io/target: external.aisling.dev
+    external-dns.kubernetes.io/target: external.aisling.dev
   name: argocd-server-wh
   namespace: argocd
 spec:

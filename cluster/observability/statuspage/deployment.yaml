@@ -54,7 +54,7 @@ metadata:
         app in (
           statuspage
         )
-    external-dns.alpha.kubernetes.io/target: external.aisling.dev
+    external-dns.kubernetes.io/target: external.aisling.dev
   name: statuspage
 spec:
   parentRefs:

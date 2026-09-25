@@ -80,7 +80,7 @@ app-template:
         gethomepage.dev/widget.type: plex
         gethomepage.dev/widget.url: https://plex.aisling.dev
         gethomepage.dev/widget.key: '{{ "{{HOMEPAGE_VAR_PLEX_TOKEN}}" }}'
-        external-dns.alpha.kubernetes.io/target: external.aisling.dev
+        external-dns.kubernetes.io/target: external.aisling.dev
       hostnames:
         - plex.aisling.dev
       parentRefs:
