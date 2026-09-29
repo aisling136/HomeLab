@@ -15,7 +15,7 @@ minecraft:
   minecraftServer:
     eula: true
     # renovate: datasource=custom.minecraft-release
-    version: "26.2"
+    version: "26.3"
     type: FABRIC
     difficulty: normal
     spawnProtection: 0
