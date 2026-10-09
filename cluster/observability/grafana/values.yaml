@@ -148,7 +148,7 @@ grafana:
       smartctl-exporter:
         # renovate: depName="SMARTctl Exporter Dashboard"
         gnetId: 22604
-        revision: 3
+        revision: 4
         datasource:
           - { name: DS_PROMETHEUS, value: VictoriaMetrics }
     kubernetes:
