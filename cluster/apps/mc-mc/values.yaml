@@ -12,6 +12,7 @@ minecraft:
     initialDelaySeconds: 30
   readinessProbe:
     initialDelaySeconds: 30
+  autoscaled: true
   minecraftServer:
     eula: true
     # renovate: datasource=custom.minecraft-release
