@@ -7,7 +7,7 @@ app-template:
         app:
           image:
             repository: bitr8/agregarr
-            tag: 2.12.2
+            tag: 2.12.3
           env:
             PORT: &port 80
             TZ: America/New_York
