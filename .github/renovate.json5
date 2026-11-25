@@ -97,8 +97,7 @@
         "/kube-controller-manager/",
         "/kube-proxy/",
         "/kube-scheduler/",
-        "/kubelet/",
-        "!kubelet-csr-approver"
+        "/kubelet[^-]/",
       ],
       group: {
         commitMessageTopic: "{{{groupName}}} group",
