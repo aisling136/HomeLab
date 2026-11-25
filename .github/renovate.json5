@@ -98,6 +98,7 @@
         "/kube-proxy/",
         "/kube-scheduler/",
         "/kubelet/",
+        "!kubelet-csr-approver"
       ],
       group: {
         commitMessageTopic: "{{{groupName}}} group",
