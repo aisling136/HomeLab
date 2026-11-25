@@ -89,23 +89,6 @@
     },
     // Grouping rules
     {
-      description: "Kubernetes Group",
-      groupName: "kubernetes",
-      matchDatasources: ["docker"],
-      matchPackageNames: [
-        "/kube-apiserver/",
-        "/kube-controller-manager/",
-        "/kube-proxy/",
-        "/kube-scheduler/",
-        "/kubelet$/",
-      ],
-      group: {
-        commitMessageTopic: "{{{groupName}}} group",
-      },
-      minimumGroupSize: 5,
-      separateMinorPatch: true,
-    },
-    {
       // Unites the factory installer image and the tuppr upgrade version
       description: "Talos Group",
       groupName: "talos",
