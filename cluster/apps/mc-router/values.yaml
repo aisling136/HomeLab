@@ -1,7 +1,7 @@
 mc-router:
   image:
     repository: ghcr.io/itzg/mc-router
-    tag: 1.56.5
+    tag: 1.57.1
     pullPolicy: IfNotPresent
   services:
     minecraft:
